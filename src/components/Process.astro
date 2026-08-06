@@ -2,11 +2,43 @@
 import {
   ArrowRight,
   BarChart3,
-  ClipboardList,
+  ClipboardCheck,
   FileSearch,
   MessageCircle,
   Settings2,
+  ShieldCheck,
 } from "@lucide/astro";
+
+const steps = [
+  {
+    number: "01",
+    title: "Diagnóstico",
+    description:
+      "Aplicamos pesquisas e realizamos entrevistas para compreender a realidade da empresa e das equipes.",
+    icon: FileSearch,
+  },
+  {
+    number: "02",
+    title: "Análise técnica",
+    description:
+      "Organizamos as informações, identificamos os riscos e definimos os pontos que exigem maior atenção.",
+    icon: ClipboardCheck,
+  },
+  {
+    number: "03",
+    title: "Plano de ação",
+    description:
+      "Transformamos o diagnóstico em orientações, prioridades e ações práticas para a organização.",
+    icon: Settings2,
+  },
+  {
+    number: "04",
+    title: "Acompanhamento",
+    description:
+      "Apoiamos o RH e as lideranças no acompanhamento das ações e na análise dos indicadores.",
+    icon: BarChart3,
+  },
+];
 
 const whatsappNumber = "5511999999999";
 
@@ -15,172 +47,183 @@ const whatsappMessage = encodeURIComponent(
 );
 
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-const steps = [
-  {
-    number: "01",
-    title: "Diagnóstico",
-    description: "Pesquisa e entrevistas.",
-    detail:
-      "Levantamos informações com equipes, RH e lideranças para compreender a realidade da organização.",
-    icon: FileSearch,
-  },
-  {
-    number: "02",
-    title: "Relatório",
-    description: "Riscos e prioridades.",
-    detail:
-      "Organizamos os principais fatores identificados e definimos os pontos que precisam de atenção.",
-    icon: ClipboardList,
-  },
-  {
-    number: "03",
-    title: "Implementação",
-    description: "Plano de ação e treinamentos.",
-    detail:
-      "Transformamos o diagnóstico em orientações, ações práticas e capacitações personalizadas.",
-    icon: Settings2,
-  },
-  {
-    number: "04",
-    title: "Acompanhamento",
-    description: "Indicadores e orientação.",
-    detail:
-      "Acompanhamos a evolução das ações e apoiamos o RH na análise dos indicadores coletivos.",
-    icon: BarChart3,
-  },
-];
 ---
 
 <section
-  id="como-funciona"
-  class="relative overflow-hidden bg-[#073638] py-16 text-white sm:py-20 lg:py-24"
+  id="processo"
+  class="relative overflow-hidden bg-[#073f3d] py-16 text-white sm:py-20 lg:py-24"
 >
-  <!-- Elementos decorativos -->
+  <!-- Círculo decorativo superior -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -right-52 -top-64 size-[520px] rounded-full border border-white/10"
+    class="pointer-events-none absolute -right-56 -top-64 hidden size-[560px] rounded-full border border-white/10 xl:block"
   ></div>
 
+  <!-- Forma decorativa inferior -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -bottom-72 -left-56 size-[560px] rounded-full bg-white/[0.035]"
+    class="pointer-events-none absolute -bottom-60 -left-48 hidden size-[500px] rounded-full bg-[#36C5BA]/[0.07] lg:block"
   ></div>
+
+  <!-- Pontos decorativos -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute right-[8%] top-16 hidden grid-cols-4 gap-4 lg:grid"
+  >
+    {
+      Array.from({ length: 12 }).map(() => (
+        <span class="size-[7px] rounded-full bg-[#36C5BA]/25"></span>
+      ))
+    }
+  </div>
 
   <div
     class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
   >
-    <!-- Cabeçalho assimétrico -->
-    <div class="grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
-      <div>
-        <span
-          class="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#80d8d2] sm:text-xs"
-        >
-          Etapas do programa
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-[880px] text-center">
+      <div
+        class="inline-flex max-w-full items-center gap-3 rounded-full border border-white/10 bg-white/[0.07] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#8ce3dc] min-[390px]:text-[11px] sm:px-5 sm:py-3 sm:text-[13px]"
+      >
+        <ShieldCheck
+          size={22}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span>Processo estruturado e personalizado</span>
+      </div>
+
+      <h2
+        class="mt-6 text-[clamp(2rem,8vw,2.9rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-white sm:mt-7 sm:text-[clamp(2.4rem,5.8vw,3.2rem)] lg:text-[clamp(2.45rem,3.4vw,2.9rem)] xl:text-[46px]"
+      >
+        Como funciona o
+
+        <span class="text-[#36C5BA]">
+          nosso processo
         </span>
+      </h2>
 
-        <h2
-          class="mt-4 max-w-[520px] text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-white lg:text-[44px]"
-        >
-          Da avaliação à
-          <span class="text-[#71d5cf]">ação prática</span>
-        </h2>
-      </div>
+      <p
+        class="mx-auto mt-5 max-w-[720px] text-[16px] leading-[1.65] text-white/70"
+      >
+        Cada etapa é conduzida de forma estratégica para transformar
+        informações em decisões, prioridades e ações aplicáveis à realidade da
+        empresa.
+      </p>
 
-      <div class="lg:border-l lg:border-white/15 lg:pl-10">
-        <p
-          class="max-w-[620px] text-[15px] leading-7 text-white/70 sm:text-[17px]"
-        >
-          Um processo estruturado para identificar riscos psicossociais,
-          definir prioridades e apoiar a empresa em cada etapa da
-          implementação.
-        </p>
-      </div>
+      <div
+        class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-[#36C5BA]"
+      ></div>
     </div>
 
-    <!-- Linha do tempo -->
-    <ol
-      class="relative mt-12 grid gap-5 lg:mt-16 lg:grid-cols-4 lg:gap-0"
-      aria-label="Etapas do programa"
-    >
+    <!-- Processo -->
+    <ol class="relative mt-12 lg:mt-14">
+      <!-- Linha vertical mobile -->
+      <div
+        aria-hidden="true"
+        class="absolute bottom-12 left-[27px] top-12 w-px bg-gradient-to-b from-[#36C5BA]/10 via-[#36C5BA]/45 to-[#36C5BA]/10 lg:hidden"
+      ></div>
+
       <!-- Linha horizontal desktop -->
       <div
         aria-hidden="true"
-        class="absolute left-[12.5%] right-[12.5%] top-11 hidden h-px bg-gradient-to-r from-transparent via-[#71d5cf]/60 to-transparent lg:block"
+        class="absolute left-[12.5%] right-[12.5%] top-[55px] hidden h-px bg-gradient-to-r from-transparent via-[#36C5BA]/50 to-transparent lg:block"
       ></div>
 
-      {
-        steps.map((step, index) => {
-          const Icon = step.icon;
+      <div class="grid gap-5 lg:grid-cols-4 lg:gap-0">
+        {
+          steps.map((step, index) => {
+            const Icon = step.icon;
 
-          return (
-            <li
-              class:list={[
-                "relative",
-                index > 0 && "lg:border-l lg:border-white/10",
-              ]}
-            >
-              <article
-                class="group relative h-full rounded-[24px] border border-white/10 bg-white/[0.055] p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#71d5cf]/45 hover:bg-white/[0.085] lg:rounded-none lg:border-y-0 lg:border-r-0 lg:bg-transparent lg:px-7 lg:py-0 lg:backdrop-blur-none lg:hover:bg-transparent"
+            return (
+              <li
+                class:list={[
+                  "group relative pl-[72px] lg:pl-0",
+                  index > 0 && "lg:border-l lg:border-white/10",
+                ]}
               >
-                <div class="flex items-center justify-between gap-4">
+                <!-- Marcador mobile -->
+                <div
+                  class="absolute left-0 top-2 flex size-14 items-center justify-center rounded-full border border-[#36C5BA]/30 bg-[#0b5551] text-[#8ce3dc] shadow-[0_12px_28px_rgb(0_0_0_/_14%)] lg:hidden"
+                >
+                  <Icon
+                    size={25}
+                    strokeWidth={1.8}
+                    aria-hidden="true"
+                  />
+                </div>
+
+                <article
+                  class="relative h-full border-b border-white/10 pb-8 lg:border-b-0 lg:px-7 lg:pb-0"
+                >
+                  <!-- Ícone desktop -->
                   <div
-                    class="relative z-10 flex size-[88px] items-center justify-center rounded-[26px] border border-white/15 bg-[#0b4a4b] text-[#8ee2dc] shadow-[0_18px_35px_rgb(0_0_0_/_16%)] transition duration-300 group-hover:scale-105 group-hover:bg-[#0d5656]"
+                    class="relative z-10 hidden size-[110px] items-center justify-center rounded-full border border-white/15 bg-[#0b5551] text-[#8ce3dc] shadow-[0_18px_38px_rgb(0_0_0_/_16%)] transition duration-300 group-hover:scale-105 group-hover:border-[#36C5BA]/50 group-hover:bg-[#0d605b] lg:flex"
                   >
                     <Icon
-                      size={34}
+                      size={38}
                       strokeWidth={1.7}
                       aria-hidden="true"
                     />
                   </div>
 
+                  <div class="lg:mt-8">
+                    <div class="flex items-center gap-3">
+                      <span
+                        class="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#36C5BA]"
+                      >
+                        Etapa {step.number}
+                      </span>
+
+                      <span
+                        class="hidden h-px flex-1 bg-white/10 lg:block"
+                      ></span>
+                    </div>
+
+                    <h3
+                      class="mt-3 text-[22px] font-extrabold leading-[1.2] tracking-[-0.035em] text-white"
+                    >
+                      {step.title}
+                    </h3>
+
+                    <p
+                      class="mt-4 text-[15px] leading-[1.65] text-white/60"
+                    >
+                      {step.description}
+                    </p>
+                  </div>
+
                   <span
-                    class="text-[42px] font-extrabold tracking-[-0.07em] text-white/10"
+                    class="absolute right-0 top-[-8px] text-[54px] font-extrabold leading-none tracking-[-0.07em] text-white/[0.04] lg:right-6 lg:top-2"
                   >
                     {step.number}
                   </span>
-                </div>
-
-                <div class="mt-7">
-                  <span
-                    class="text-[11px] font-bold uppercase tracking-[0.1em] text-[#71d5cf]"
-                  >
-                    Etapa {step.number}
-                  </span>
-
-                  <h3 class="mt-2 text-[22px] font-extrabold text-white">
-                    {step.title}
-                  </h3>
-
-                  <p class="mt-2 text-[15px] font-bold text-white/85">
-                    {step.description}
-                  </p>
-
-                  <p class="mt-4 text-sm leading-6 text-white/60">
-                    {step.detail}
-                  </p>
-                </div>
-              </article>
-            </li>
-          );
-        })
-      }
+                </article>
+              </li>
+            );
+          })
+        }
+      </div>
     </ol>
 
-    <!-- Rodapé do bloco -->
+    <!-- Bloco final -->
     <div
-      class="mt-12 flex flex-col gap-6 rounded-[26px] border border-white/10 bg-white/[0.055] px-6 py-6 sm:px-8 lg:flex-row lg:items-center lg:justify-between"
+      class="mt-10 flex flex-col gap-6 rounded-[26px] border border-white/10 bg-white/[0.06] px-6 py-6 backdrop-blur-sm sm:px-8 lg:mt-14 lg:flex-row lg:items-center lg:justify-between"
     >
-      <div class="max-w-[670px]">
+      <div class="max-w-[650px]">
         <span
-          class="text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#71d5cf]"
+          class="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#8ce3dc]"
         >
-          Acompanhamento especializado
+          Atendimento personalizado
         </span>
 
-        <p class="mt-2 text-[17px] font-bold leading-7 text-white sm:text-[19px]">
-          Cada etapa é adaptada ao porte, ao contexto e às necessidades da
-          sua empresa.
+        <p
+          class="mt-3 text-[16px] font-bold leading-[1.65] text-white/90"
+        >
+          O processo é adaptado ao porte, ao contexto e às necessidades de cada
+          organização.
         </p>
       </div>
 
@@ -188,7 +231,8 @@ const steps = [
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_0_0_/_20%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_0_0_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] lg:w-auto lg:min-w-[390px] xl:text-[15px]"
+        aria-label="Falar com um especialista pelo WhatsApp"
+        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#147b75] to-[#36C5BA] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] !text-white shadow-[0_16px_34px_rgb(0_0_0_/_18%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_0_0_/_26%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] lg:w-auto lg:min-w-[390px] xl:text-[15px]"
       >
         <MessageCircle
           size={25}
@@ -197,7 +241,9 @@ const steps = [
           class="shrink-0"
         />
 
-        <span>Falar com um especialista</span>
+        <span class="text-left">
+          Falar com um especialista
+        </span>
 
         <ArrowRight
           size={27}

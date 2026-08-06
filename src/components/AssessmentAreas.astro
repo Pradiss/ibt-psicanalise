@@ -13,7 +13,7 @@ import {
 const assessmentAreas = [
   {
     title: "Liderança",
-    description: "Respeito, clareza e gestão adequada dos conflitos.",
+    description: "Respeito, clareza e gestão de conflitos.",
     icon: UserRoundCog,
   },
   {
@@ -23,7 +23,7 @@ const assessmentAreas = [
   },
   {
     title: "Saúde emocional",
-    description: "Estresse, ansiedade, pressão e sobrecarga.",
+    description: "Estresse, ansiedade e sobrecarga.",
     icon: HeartPulse,
   },
   {
@@ -38,7 +38,7 @@ const assessmentAreas = [
   },
   {
     title: "Integração entre equipes",
-    description: "Cooperação e relacionamento entre diferentes setores.",
+    description: "Cooperação e relacionamento entre setores.",
     icon: UsersRound,
   },
 ];
@@ -46,35 +46,39 @@ const assessmentAreas = [
 
 <section
   id="avaliacao"
-  class="relative overflow-hidden bg-[#f4f8f7] py-16 sm:py-20 lg:py-24"
+  class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
 >
+  <!-- Pontos decorativos -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute left-[5%] top-[12%] hidden size-24 rounded-full border border-[#36C5BA]/20 lg:block"
-  ></div>
-
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute -bottom-60 -right-48 hidden size-[540px] rounded-full border border-[#36C5BA]/15 xl:block"
-  ></div>
-
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute right-[8%] top-16 hidden grid-cols-4 gap-4 lg:grid"
+    class="pointer-events-none absolute right-[7%] top-14 hidden grid-cols-4 gap-4 lg:grid"
   >
     {
       Array.from({ length: 12 }).map(() => (
-        <span class="size-2 rounded-full bg-[#36C5BA]/20"></span>
+        <span class="size-[7px] rounded-full bg-[#36C5BA]/20"></span>
       ))
     }
   </div>
 
+  <!-- Linha orgânica direita -->
   <div
-    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-[210px] -top-[240px] hidden size-[560px] rounded-full border border-[#36C5BA]/25 xl:block"
+  ></div>
+
+  <!-- Forma orgânica inferior esquerda -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-[230px] -left-[170px] hidden size-[470px] rounded-[48%_52%_46%_54%] bg-[#36C5BA]/[0.07] lg:block"
+  ></div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1360px)] sm:w-[min(calc(100%-48px),1360px)] xl:w-[min(calc(100%-64px),1360px)]"
   >
-    <div class="mx-auto max-w-[860px] text-center">
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-[880px] text-center">
       <div
-        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#147b75] min-[390px]:text-[11px] sm:px-5 sm:py-3 sm:text-[13px]"
+        class="inline-flex max-w-full items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#147b75] min-[390px]:text-[11px] sm:px-5 sm:py-3 sm:text-[13px]"
       >
         <BadgeCheck
           size={22}
@@ -90,76 +94,77 @@ const assessmentAreas = [
         class="mt-6 text-[clamp(2rem,8vw,2.9rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-[#071f31] sm:mt-7 sm:text-[clamp(2.4rem,5.8vw,3.2rem)] lg:text-[clamp(2.45rem,3.4vw,2.9rem)] xl:text-[46px]"
       >
         O que
-
         <span class="text-[#36C5BA]">avaliamos</span>
       </h2>
 
-      <div
-        class="mx-auto mt-5 h-[3px] w-14 rounded-full bg-[#36C5BA]"
-      ></div>
-
       <p
-        class="mx-auto mt-5 max-w-[720px] text-[16px] leading-[1.65] text-[#42545f]"
+        class="mx-auto mt-5 max-w-[720px] text-[16px] leading-[1.65] text-[#243640]"
       >
-        Analisamos os principais fatores que influenciam a saúde emocional,
-        as relações de trabalho e o desempenho das equipes.
+        Analisamos os principais fatores que impactam a saúde emocional e o
+        desempenho das equipes.
       </p>
+
+      <div
+        class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-[#147b75]"
+      ></div>
     </div>
 
-    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <!-- Grid -->
+    <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
       {
-        assessmentAreas.map((item, index) => {
+        assessmentAreas.map((item) => {
           const Icon = item.icon;
 
           return (
             <article
-              class="group relative overflow-hidden rounded-[28px] border border-[#dfe9e7] bg-white p-6 shadow-[0_16px_45px_rgb(7_31_49_/_6%)] transition duration-300 hover:-translate-y-2 hover:border-[#36C5BA]/45 hover:shadow-[0_24px_60px_rgb(7_31_49_/_10%)]"
+              class="group relative overflow-hidden rounded-[24px] border border-[#dfe8e6] bg-white px-5 py-6 shadow-[0_10px_34px_rgb(7_31_49_/_5%)] transition duration-300 hover:-translate-y-1 hover:border-[#36C5BA]/45 hover:shadow-[0_18px_44px_rgb(7_31_49_/_9%)] sm:px-6"
             >
-              <div class="flex min-h-[165px] items-center gap-5">
+              <div
+                class="grid min-h-[170px] grid-cols-[90px_1px_1fr] items-center gap-5 sm:grid-cols-[112px_1px_1fr]"
+              >
+                <!-- Ícone -->
                 <div
-                  class="relative flex size-[100px] shrink-0 items-center justify-center rounded-[30px] bg-gradient-to-br from-[#36C5BA]/15 to-[#36C5BA]/5 text-[#147b75] transition duration-300 group-hover:scale-105"
+                  class="flex size-[90px] items-center justify-center rounded-full bg-gradient-to-br from-[#edf7f6] to-[#e4f1ef] text-[#147b75] transition duration-300 group-hover:scale-105 sm:size-[112px]"
                 >
                   <Icon
                     size={46}
-                    strokeWidth={1.6}
+                    strokeWidth={1.65}
                     aria-hidden="true"
+                    class="sm:size-[52px]"
                   />
-
-                  <span
-                    class="absolute -right-2 -top-2 flex size-7 items-center justify-center rounded-full bg-[#147b75] text-[10px] font-extrabold text-white"
-                  >
-                    0{index + 1}
-                  </span>
                 </div>
 
+                <!-- Divisor -->
+                <div class="h-[108px] w-px bg-[#d9e5e3]"></div>
+
+                <!-- Texto -->
                 <div>
                   <h3
-                    class="text-[21px] font-extrabold leading-[1.2] tracking-[-0.035em] text-[#147b75]"
+                    class="text-[20px] font-extrabold leading-[1.15] tracking-[-0.035em] text-[#147b75] sm:text-[22px]"
                   >
                     {item.title}
                   </h3>
 
-                  <p class="mt-3 text-[15px] leading-[1.65] text-[#42545f]">
+                  <p
+                    class="mt-3 text-[15px] leading-[1.65] text-[#263640] sm:text-[16px]"
+                  >
                     {item.description}
                   </p>
                 </div>
               </div>
-
-              <div
-                class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#147b75] to-[#36C5BA] transition-all duration-500 group-hover:w-full"
-              ></div>
             </article>
           );
         })
       }
     </div>
 
+    <!-- Destaque final -->
     <div
-      class="mx-auto mt-9 max-w-[930px] rounded-[24px] border border-[#36C5BA]/15 bg-white px-6 py-6 shadow-[0_16px_40px_rgb(7_31_49_/_5%)] sm:px-8"
+      class="mx-auto mt-8 max-w-[840px] overflow-hidden rounded-[22px] bg-gradient-to-r from-[#eef6f5] to-[#f5faf9] px-5 py-5 sm:px-7"
     >
       <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
         <div
-          class="flex size-[70px] shrink-0 items-center justify-center rounded-full bg-[#36C5BA]/10 text-[#147b75]"
+          class="flex size-[68px] shrink-0 items-center justify-center rounded-full border border-[#147b75]/20 bg-white text-[#147b75]"
         >
           <Sparkles
             size={31}
@@ -168,13 +173,18 @@ const assessmentAreas = [
           />
         </div>
 
-        <div class="hidden h-14 w-px bg-[#147b75]/20 sm:block"></div>
+        <div
+          class="hidden h-14 w-px shrink-0 bg-[#147b75]/25 sm:block"
+        ></div>
 
-        <p class="text-[16px] leading-[1.65] text-[#263a43]">
-          Uma visão completa para decisões mais assertivas e um ambiente
+        <p
+          class="text-[16px] leading-[1.65] text-[#243640]"
+        >
+          Uma visão completa para decisões mais assertivas e um ambiente de
+          trabalho
 
           <strong class="font-extrabold text-[#147b75]">
-            mais saudável, seguro e produtivo.
+            mais saudável e produtivo.
           </strong>
         </p>
       </div>

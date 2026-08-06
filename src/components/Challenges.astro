@@ -1,38 +1,30 @@
 ---
 import {
   ArrowRight,
-  BrainCircuit,
-  ChartNoAxesColumnDecreasing,
+  Brain,
   ClipboardCheck,
   MessageCircle,
   MessagesSquare,
   ShieldCheck,
   Sparkles,
+  TrendingDown,
 } from "@lucide/astro";
 
 const challenges = [
   {
     title: "Sobrecarga e estresse",
-    description:
-      "Demandas excessivas, pressão constante e dificuldade para manter o equilíbrio emocional.",
-    icon: BrainCircuit,
+    icon: Brain,
   },
   {
-    title: "Conflitos e comunicação",
-    description:
-      "Falhas na comunicação que fragilizam as relações, a confiança e a colaboração.",
+    title: "Conflitos e falhas de comunicação",
     icon: MessagesSquare,
   },
   {
-    title: "Afastamentos e produtividade",
-    description:
-      "Impactos emocionais que aumentam ausências e comprometem o desempenho das equipes.",
-    icon: ChartNoAxesColumnDecreasing,
+    title: "Afastamentos e queda de produtividade",
+    icon: TrendingDown,
   },
   {
-    title: "Ações relacionadas à NR-1",
-    description:
-      "Dificuldade para identificar riscos, estabelecer prioridades e estruturar ações.",
+    title: "Dificuldade para estruturar ações da NR-1",
     icon: ClipboardCheck,
   },
 ];
@@ -50,33 +42,37 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
   id="desafios"
   class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
 >
+  <!-- Forma orgânica inferior -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-44 -left-36 hidden size-[420px] rounded-[46%_54%_48%_52%] bg-[#36C5BA]/[0.07] lg:block"
+  ></div>
+
+  <!-- Linha orgânica direita -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-44 -top-52 hidden size-[500px] rounded-full border border-[#36C5BA]/25 xl:block"
+  ></div>
+
+  <!-- Pontos decorativos -->
   <div
     aria-hidden="true"
     class="pointer-events-none absolute right-[7%] top-16 hidden grid-cols-4 gap-4 lg:grid"
   >
     {
       Array.from({ length: 12 }).map(() => (
-        <span class="size-2 rounded-full bg-[#36C5BA]/20"></span>
+        <span class="size-[7px] rounded-full bg-[#36C5BA]/20"></span>
       ))
     }
   </div>
 
   <div
-    aria-hidden="true"
-    class="pointer-events-none absolute -right-52 -top-64 hidden size-[540px] rounded-full border border-[#36C5BA]/20 xl:block"
-  ></div>
-
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute -bottom-52 -left-44 hidden size-[440px] rounded-full bg-[#36C5BA]/[0.06] xl:block"
-  ></div>
-
-  <div
     class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
   >
-    <div class="mx-auto max-w-[860px] text-center">
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-[880px] text-center">
       <div
-        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#147b75] min-[390px]:text-[11px] sm:px-5 sm:py-3 sm:text-[13px]"
+        class="inline-flex max-w-full items-center gap-2.5 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#147b75] min-[390px]:text-[11px] sm:gap-3 sm:px-5 sm:py-3 sm:text-[13px]"
       >
         <ShieldCheck
           size={22}
@@ -98,71 +94,70 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
         </span>
       </h2>
 
-      <div
-        class="mx-auto mt-5 h-[3px] w-14 rounded-full bg-[#36C5BA]"
-      ></div>
-
       <p
         class="mx-auto mt-5 max-w-[720px] text-[16px] leading-[1.65] text-[#42545f]"
       >
-        Alguns sinais aparecem silenciosamente no cotidiano, mas afetam
-        diretamente a saúde das equipes, o clima organizacional e os
-        resultados da empresa.
+        Identificar esses sinais é o primeiro passo para proteger as equipes,
+        melhorar o ambiente de trabalho e estruturar ações mais assertivas.
       </p>
+
+      <div
+        class="mx-auto mt-5 h-[3px] w-14 rounded-full bg-[#36C5BA]"
+      ></div>
     </div>
 
-    <div class="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+    <!-- Desafios -->
+    <div
+      class="mt-11 grid gap-4 sm:grid-cols-2 lg:mt-12 xl:grid-cols-4"
+    >
       {
         challenges.map((item, index) => {
           const Icon = item.icon;
 
           return (
             <article
-              class="group relative flex min-h-[350px] flex-col overflow-hidden rounded-[28px] border border-[#dfe9e7] bg-white p-7 shadow-[0_16px_45px_rgb(7_31_49_/_6%)] transition duration-300 hover:-translate-y-2 hover:border-[#36C5BA]/45 hover:shadow-[0_24px_60px_rgb(7_31_49_/_10%)]"
+              class="group relative flex min-h-[295px] flex-col items-center overflow-hidden rounded-[28px] border border-[#dfe9e7] bg-white px-6 py-7 text-center shadow-[0_14px_38px_rgb(7_31_49_/_5%)] transition duration-300 hover:-translate-y-1.5 hover:border-[#36C5BA]/45 hover:shadow-[0_22px_52px_rgb(7_31_49_/_9%)] sm:min-h-[315px]"
             >
               <span
-                class="absolute right-6 top-5 text-[42px] font-extrabold leading-none tracking-[-0.07em] text-[#071f31]/[0.055]"
+                class="absolute right-5 top-4 text-[34px] font-extrabold leading-none tracking-[-0.06em] text-[#071f31]/[0.055]"
               >
                 0{index + 1}
               </span>
 
               <div
-                class="flex size-[102px] items-center justify-center rounded-[30px] bg-gradient-to-br from-[#36C5BA]/15 to-[#36C5BA]/5 text-[#147b75] transition duration-300 group-hover:scale-105"
+                class="flex size-[112px] items-center justify-center rounded-full bg-gradient-to-br from-[#eef8f7] to-[#dcefeb] text-[#147b75] transition duration-300 group-hover:scale-105"
               >
                 <Icon
-                  size={46}
-                  strokeWidth={1.6}
+                  size={50}
+                  strokeWidth={1.65}
                   aria-hidden="true"
                 />
               </div>
 
-              <div class="mt-auto pt-9">
-                <h3
-                  class="text-[21px] font-extrabold leading-[1.2] tracking-[-0.035em] text-[#071f31]"
-                >
-                  {item.title}
-                </h3>
+              <h3
+                class="mx-auto mt-7 max-w-[235px] text-[20px] font-extrabold leading-[1.28] tracking-[-0.035em] text-[#071f31] sm:text-[21px]"
+              >
+                {item.title}
+              </h3>
 
-                <p class="mt-3 text-[15px] leading-[1.65] text-[#42545f]">
-                  {item.description}
-                </p>
+              <div class="mt-auto pt-6">
+                <div
+                  class="mx-auto h-[3px] w-12 rounded-full bg-[#147b75] transition-all duration-300 group-hover:w-20 group-hover:bg-[#36C5BA]"
+                ></div>
               </div>
-
-              <div
-                class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#147b75] to-[#36C5BA] transition-all duration-500 group-hover:w-full"
-              ></div>
             </article>
           );
         })
       }
     </div>
 
+    <!-- Destaque -->
     <div
-      class="mx-auto mt-9 max-w-[930px] rounded-[24px] border border-[#36C5BA]/15 bg-[#f1f8f7] px-6 py-6 sm:px-8"
+      class="mx-auto mt-8 max-w-[940px] overflow-hidden rounded-[26px] border border-[#36C5BA]/10 bg-gradient-to-r from-[#eef7f6] to-[#f5faf9] px-5 py-5 sm:px-7 sm:py-6"
     >
       <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
         <div
-          class="flex size-[70px] shrink-0 items-center justify-center rounded-full bg-white text-[#147b75] shadow-[0_10px_30px_rgb(7_31_49_/_7%)]"
+          class="flex size-[70px] shrink-0 items-center justify-center rounded-full border border-[#147b75]/20 bg-white text-[#147b75] shadow-[0_10px_28px_rgb(7_31_49_/_6%)]"
         >
           <Sparkles
             size={31}
@@ -171,7 +166,9 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
           />
         </div>
 
-        <div class="hidden h-14 w-px bg-[#147b75]/20 sm:block"></div>
+        <div
+          class="hidden h-14 w-px shrink-0 bg-[#147b75]/20 sm:block"
+        ></div>
 
         <p class="text-[16px] leading-[1.65] text-[#263a43]">
           Nosso programa transforma esses sinais em
@@ -183,22 +180,28 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
       </div>
     </div>
 
-    <div class="mt-8 flex justify-center">
+    <!-- CTA -->
+    <div class="mt-7 flex justify-center">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Solicitar uma avaliação pelo WhatsApp"
-        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#147b75] to-[#36C5BA] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(54_197_186_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(54_197_186_/_30%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#147b75] to-[#36C5BA] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] !text-white shadow-[0_16px_34px_rgb(54_197_186_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(54_197_186_/_30%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
       >
-        <MessageCircle
-          size={25}
-          strokeWidth={2}
-          aria-hidden="true"
-          class="shrink-0"
-        />
+        <span
+          class="flex size-11 shrink-0 items-center justify-center rounded-full border border-white/25 bg-white/10"
+        >
+          <MessageCircle
+            size={24}
+            strokeWidth={2}
+            aria-hidden="true"
+          />
+        </span>
 
-        <span class="text-left">Solicitar uma avaliação</span>
+        <span class="text-left">
+          Solicitar uma avaliação
+        </span>
 
         <ArrowRight
           size={27}
