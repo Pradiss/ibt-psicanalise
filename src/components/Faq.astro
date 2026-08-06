@@ -1,129 +1,96 @@
 ---
-import {
-  ChevronDown,
-  HelpCircle,
-  ShieldCheck,
-} from "@lucide/astro";
+import { ChevronDown } from "@lucide/astro";
 
 const faqs = [
   {
     question: "O que são riscos psicossociais?",
     answer:
-      "São fatores relacionados à organização e às relações de trabalho que podem afetar a saúde emocional, como sobrecarga, conflitos, falhas de comunicação e assédio.",
+      "São fatores relacionados à organização, às condições e às relações de trabalho que podem afetar a saúde emocional e o bem-estar dos colaboradores.",
   },
   {
     question: "Como funciona a implementação?",
     answer:
-      "A implementação envolve pesquisa, entrevistas, análise técnica, relatório, plano de ação e reunião de devolutiva com o RH e a direção.",
+      "O processo envolve coleta de informações, análise técnica, relatório, plano de ação e reunião de devolutiva.",
   },
   {
-    question: "Os atendimentos são sigilosos?",
+    question: "Os dados são sigilosos?",
     answer:
-      "Sim. A empresa recebe apenas indicadores coletivos e recomendações institucionais, preservando o sigilo das informações individuais.",
+      "Sim. A empresa recebe indicadores coletivos, preservando a confidencialidade das informações individuais.",
   },
   {
     question: "O programa é personalizado?",
     answer:
-      "Sim. A estrutura é adaptada ao porte, à realidade e às necessidades específicas de cada empresa.",
+      "Sim. A metodologia é adaptada ao porte, ao contexto e às necessidades específicas de cada organização.",
   },
   {
     question: "Os treinamentos podem ser presenciais?",
     answer:
-      "Sim. Os treinamentos podem ser realizados de forma presencial ou online, conforme a necessidade da organização.",
+      "Sim. Os treinamentos podem acontecer presencialmente ou online, conforme a necessidade da empresa.",
   },
 ];
 ---
 
 <section
   id="faq"
-  class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
+  class="bg-[#f4f1ea] py-20 sm:py-24 lg:py-28"
 >
   <div
-    aria-hidden="true"
-    class="pointer-events-none absolute -right-56 -top-72 hidden size-[560px] rotate-[18deg] rounded-[46%] border border-brand-500/30 xl:block"
-  ></div>
-
-  <div
-    class="relative mx-auto w-[min(calc(100%-32px),1000px)] sm:w-[min(calc(100%-48px),1000px)]"
+    class="mx-auto grid w-[min(calc(100%-32px),1250px)] gap-12 sm:w-[min(calc(100%-48px),1250px)] lg:grid-cols-[0.7fr_1.3fr] lg:gap-20 xl:w-[min(calc(100%-64px),1250px)]"
   >
-    <div class="mx-auto max-w-[800px] text-center">
-      <div
-        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 sm:text-[13px]"
+    <div class="lg:sticky lg:top-28 lg:self-start">
+      <span
+        class="text-[11px] font-extrabold uppercase tracking-[0.15em] text-[#087d78]"
       >
-        <HelpCircle
-          size={23}
-          strokeWidth={2}
-          aria-hidden="true"
-        />
-
-        <span>Dúvidas frequentes</span>
-      </div>
+        Dúvidas frequentes
+      </span>
 
       <h2
-        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+        class="mt-5 max-w-[470px] text-[clamp(2.4rem,7vw,4.5rem)] font-extrabold leading-[0.98] tracking-[-0.06em] text-[#102827]"
       >
-        Perguntas
-        <span class="text-brand-600">frequentes</span>
+        Informação para decidir com
+        <span class="text-[#087d78]">segurança.</span>
       </h2>
 
-      <p
-        class="mx-auto mt-5 max-w-[650px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
-      >
-        Confira as principais dúvidas sobre a gestão de riscos psicossociais e o apoio à NR-1.
+      <p class="mt-7 max-w-[430px] text-[16px] leading-7 text-[#687974]">
+        Reunimos as principais dúvidas sobre a gestão de riscos psicossociais
+        e o apoio à NR-1.
       </p>
-
-      <div class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"></div>
     </div>
 
-    <div class="mt-10 space-y-3 lg:mt-12">
+    <div class="border-t border-[#102827]/15">
       {
-        faqs.map((faq) => (
-          <details
-            class="group overflow-hidden rounded-[20px] border border-[#dbe6e4] bg-white shadow-[0_10px_30px_rgb(7_29_43_/_5%)]"
-          >
+        faqs.map((faq, index) => (
+          <details class="group border-b border-[#102827]/15">
             <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+              class="flex cursor-pointer list-none items-center gap-5 py-7 sm:py-8"
             >
               <span
-                class="text-[16px] font-extrabold leading-6 text-ink-950 sm:text-[18px]"
+                class="text-xs font-extrabold tracking-[0.08em] text-[#087d78]"
+              >
+                0{index + 1}
+              </span>
+
+              <span
+                class="flex-1 text-[18px] font-extrabold leading-6 tracking-[-0.02em] text-[#102827] sm:text-[22px]"
               >
                 {faq.question}
               </span>
 
               <span
-                class="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700 transition-transform duration-300 group-open:rotate-180"
+                class="flex size-11 items-center justify-center rounded-full border border-[#102827]/15 transition duration-300 group-open:rotate-180 group-open:bg-[#087d78] group-open:text-white"
               >
-                <ChevronDown
-                  size={21}
-                  strokeWidth={2}
-                  aria-hidden="true"
-                />
+                <ChevronDown size={20} strokeWidth={1.8} />
               </span>
             </summary>
 
-            <div class="border-t border-[#e4edeb] px-5 py-5 sm:px-6">
-              <p class="max-w-[820px] text-[14px] leading-7 text-ink-700 sm:text-[16px]">
+            <div class="pb-8 pl-0 sm:pl-[52px]">
+              <p class="max-w-[650px] text-[15px] leading-7 text-[#687974]">
                 {faq.answer}
               </p>
             </div>
           </details>
         ))
       }
-    </div>
-
-    <div
-      class="mx-auto mt-8 flex max-w-[700px] items-center gap-4 rounded-[20px] bg-[#edf5f4] px-5 py-4 sm:px-6"
-    >
-      <ShieldCheck
-        size={27}
-        strokeWidth={1.8}
-        aria-hidden="true"
-        class="shrink-0 text-brand-700"
-      />
-
-      <p class="text-sm leading-6 text-ink-700 sm:text-[15px]">
-        Todas as etapas são conduzidas com ética, sigilo e cuidado com as informações coletadas.
-      </p>
     </div>
   </div>
 </section>

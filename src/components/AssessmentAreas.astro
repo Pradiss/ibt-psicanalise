@@ -1,35 +1,35 @@
 ---
 import {
-  ClipboardCheck,
+  BadgeCheck,
+  ClipboardList,
   HeartPulse,
-  MessagesSquare,
+  MessageCircleMore,
   ShieldAlert,
-  ShieldCheck,
-  Star,
+  Sparkles,
   UserRoundCog,
   UsersRound,
 } from "@lucide/astro";
 
-const areas = [
+const assessmentAreas = [
   {
     title: "Liderança",
-    description: "Respeito, clareza e gestão de conflitos.",
+    description: "Respeito, clareza e gestão adequada dos conflitos.",
     icon: UserRoundCog,
   },
   {
     title: "Clima e comunicação",
     description: "Relacionamento, confiança e fluxo de informações.",
-    icon: MessagesSquare,
+    icon: MessageCircleMore,
   },
   {
     title: "Saúde emocional",
-    description: "Estresse, ansiedade e sobrecarga.",
+    description: "Estresse, ansiedade, pressão e sobrecarga.",
     icon: HeartPulse,
   },
   {
     title: "Organização do trabalho",
     description: "Metas, demandas e distribuição das atividades.",
-    icon: ClipboardCheck,
+    icon: ClipboardList,
   },
   {
     title: "Assédio e constrangimento",
@@ -38,50 +38,46 @@ const areas = [
   },
   {
     title: "Integração entre equipes",
-    description: "Cooperação e relacionamento entre setores.",
+    description: "Cooperação e relacionamento entre diferentes setores.",
     icon: UsersRound,
   },
 ];
 ---
 
 <section
-  id="o-que-avaliamos"
-  class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
+  id="avaliacao"
+  class="relative overflow-hidden bg-[#f4f8f7] py-16 sm:py-20 lg:py-24"
 >
-  <!-- Curva superior direita -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -right-56 -top-72 hidden size-[560px] rotate-[18deg] rounded-[46%] border border-brand-500/30 xl:block"
+    class="pointer-events-none absolute left-[5%] top-[12%] hidden size-24 rounded-full border border-[#36C5BA]/20 lg:block"
   ></div>
 
-  <!-- Pontos -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute right-[10%] top-14 hidden grid-cols-3 gap-4 opacity-50 xl:grid"
+    class="pointer-events-none absolute -bottom-60 -right-48 hidden size-[540px] rounded-full border border-[#36C5BA]/15 xl:block"
+  ></div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute right-[8%] top-16 hidden grid-cols-4 gap-4 lg:grid"
   >
     {
-      Array.from({ length: 9 }).map(() => (
-        <span class="size-[8px] rounded-full bg-[#c8e2df]"></span>
+      Array.from({ length: 12 }).map(() => (
+        <span class="size-2 rounded-full bg-[#36C5BA]/20"></span>
       ))
     }
   </div>
 
-  <!-- Forma inferior esquerda -->
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute -bottom-72 -left-60 hidden size-[560px] rounded-full bg-[#e8f3f1] xl:block"
-  ></div>
-
   <div
     class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
   >
-    <!-- Cabeçalho -->
-    <div class="mx-auto max-w-[850px] text-center">
+    <div class="mx-auto max-w-[860px] text-center">
       <div
-        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 sm:text-[13px]"
+        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#147b75] min-[390px]:text-[11px] sm:px-5 sm:py-3 sm:text-[13px]"
       >
-        <ShieldCheck
-          size={24}
+        <BadgeCheck
+          size={22}
           strokeWidth={2}
           aria-hidden="true"
           class="shrink-0"
@@ -91,96 +87,97 @@ const areas = [
       </div>
 
       <h2
-        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+        class="mt-6 text-[clamp(2rem,8vw,2.9rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-[#071f31] sm:mt-7 sm:text-[clamp(2.4rem,5.8vw,3.2rem)] lg:text-[clamp(2.45rem,3.4vw,2.9rem)] xl:text-[46px]"
       >
         O que
-        <span class="text-brand-600">avaliamos</span>
+
+        <span class="text-[#36C5BA]">avaliamos</span>
       </h2>
 
-      <p
-        class="mx-auto mt-5 max-w-[720px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
-      >
-        Analisamos os principais fatores que impactam a saúde emocional e o
-        desempenho das equipes.
-      </p>
-
       <div
-        class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"
+        class="mx-auto mt-5 h-[3px] w-14 rounded-full bg-[#36C5BA]"
       ></div>
+
+      <p
+        class="mx-auto mt-5 max-w-[720px] text-[16px] leading-[1.65] text-[#42545f]"
+      >
+        Analisamos os principais fatores que influenciam a saúde emocional,
+        as relações de trabalho e o desempenho das equipes.
+      </p>
     </div>
 
-    <!-- Cards -->
-    <div
-      class="mt-10 grid gap-4 md:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-4 xl:gap-5"
-    >
+    <div class="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
       {
-        areas.map((area) => {
-          const Icon = area.icon;
+        assessmentAreas.map((item, index) => {
+          const Icon = item.icon;
 
           return (
             <article
-              class="flex min-h-[210px] items-center gap-5 rounded-[22px] border border-[#dbe6e4] bg-white p-5 shadow-[0_12px_35px_rgb(7_29_43_/_6%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_10%)] sm:p-6"
+              class="group relative overflow-hidden rounded-[28px] border border-[#dfe9e7] bg-white p-6 shadow-[0_16px_45px_rgb(7_31_49_/_6%)] transition duration-300 hover:-translate-y-2 hover:border-[#36C5BA]/45 hover:shadow-[0_24px_60px_rgb(7_31_49_/_10%)]"
             >
-              <div
-                class="flex size-[96px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#eef7f5] to-[#e0efed] text-brand-700 sm:size-[105px]"
-              >
-                <Icon
-                  size={48}
-                  strokeWidth={1.65}
-                  aria-hidden="true"
-                />
+              <div class="flex min-h-[165px] items-center gap-5">
+                <div
+                  class="relative flex size-[100px] shrink-0 items-center justify-center rounded-[30px] bg-gradient-to-br from-[#36C5BA]/15 to-[#36C5BA]/5 text-[#147b75] transition duration-300 group-hover:scale-105"
+                >
+                  <Icon
+                    size={46}
+                    strokeWidth={1.6}
+                    aria-hidden="true"
+                  />
+
+                  <span
+                    class="absolute -right-2 -top-2 flex size-7 items-center justify-center rounded-full bg-[#147b75] text-[10px] font-extrabold text-white"
+                  >
+                    0{index + 1}
+                  </span>
+                </div>
+
+                <div>
+                  <h3
+                    class="text-[21px] font-extrabold leading-[1.2] tracking-[-0.035em] text-[#147b75]"
+                  >
+                    {item.title}
+                  </h3>
+
+                  <p class="mt-3 text-[15px] leading-[1.65] text-[#42545f]">
+                    {item.description}
+                  </p>
+                </div>
               </div>
 
               <div
-                class="hidden h-[118px] w-px shrink-0 bg-[#d8e4e2] sm:block"
+                class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#147b75] to-[#36C5BA] transition-all duration-500 group-hover:w-full"
               ></div>
-
-              <div>
-                <h3
-                  class="text-[18px] font-extrabold leading-[1.3] text-brand-800 sm:text-[20px]"
-                >
-                  {area.title}
-                </h3>
-
-                <p
-                  class="mt-3 text-[14px] leading-6 text-ink-700 sm:text-[15px]"
-                >
-                  {area.description}
-                </p>
-              </div>
             </article>
           );
         })
       }
     </div>
 
-    <!-- Destaque final -->
     <div
-      class="mx-auto mt-8 flex max-w-[820px] flex-col items-center gap-5 rounded-[22px] bg-gradient-to-r from-[#edf5f4] to-[#e8f1ef] px-6 py-5 sm:flex-row sm:px-8"
+      class="mx-auto mt-9 max-w-[930px] rounded-[24px] border border-[#36C5BA]/15 bg-white px-6 py-6 shadow-[0_16px_40px_rgb(7_31_49_/_5%)] sm:px-8"
     >
-      <div
-        class="flex size-14 shrink-0 items-center justify-center rounded-full border-2 border-brand-600 text-brand-700"
-      >
-        <Star
-          size={28}
-          strokeWidth={1.8}
-          aria-hidden="true"
-        />
+      <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
+        <div
+          class="flex size-[70px] shrink-0 items-center justify-center rounded-full bg-[#36C5BA]/10 text-[#147b75]"
+        >
+          <Sparkles
+            size={31}
+            strokeWidth={1.7}
+            aria-hidden="true"
+          />
+        </div>
+
+        <div class="hidden h-14 w-px bg-[#147b75]/20 sm:block"></div>
+
+        <p class="text-[16px] leading-[1.65] text-[#263a43]">
+          Uma visão completa para decisões mais assertivas e um ambiente
+
+          <strong class="font-extrabold text-[#147b75]">
+            mais saudável, seguro e produtivo.
+          </strong>
+        </p>
       </div>
-
-      <div
-        class="hidden h-14 w-px shrink-0 bg-brand-500/45 sm:block"
-      ></div>
-
-      <p
-        class="text-center text-[15px] leading-7 text-ink-950 sm:text-left sm:text-[17px] lg:text-[18px]"
-      >
-        Uma visão completa para decisões mais assertivas e um ambiente de
-        trabalho
-        <strong class="font-extrabold text-brand-700">
-          mais saudável e produtivo.
-        </strong>
-      </p>
     </div>
   </div>
 </section>

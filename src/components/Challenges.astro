@@ -1,89 +1,85 @@
 ---
 import {
   ArrowRight,
-  Brain,
+  BrainCircuit,
+  ChartNoAxesColumnDecreasing,
   ClipboardCheck,
-  MessageCircleMore,
+  MessageCircle,
+  MessagesSquare,
   ShieldCheck,
-  Star,
-  TrendingDown,
-  UsersRound,
+  Sparkles,
 } from "@lucide/astro";
-
-const whatsappNumber = "5511999999999";
-
-const whatsappMessage = encodeURIComponent(
-  "Olá! Gostaria de solicitar uma avaliação sobre riscos psicossociais e adequação à NR-1.",
-);
-
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const challenges = [
   {
     title: "Sobrecarga e estresse",
-    icon: Brain,
+    description:
+      "Demandas excessivas, pressão constante e dificuldade para manter o equilíbrio emocional.",
+    icon: BrainCircuit,
   },
   {
-    title: "Conflitos e falhas de comunicação",
-    icon: UsersRound,
+    title: "Conflitos e comunicação",
+    description:
+      "Falhas na comunicação que fragilizam as relações, a confiança e a colaboração.",
+    icon: MessagesSquare,
   },
   {
-    title: "Afastamentos e queda de produtividade",
-    icon: TrendingDown,
+    title: "Afastamentos e produtividade",
+    description:
+      "Impactos emocionais que aumentam ausências e comprometem o desempenho das equipes.",
+    icon: ChartNoAxesColumnDecreasing,
   },
   {
-    title: "Dificuldade para estruturar ações da NR-1",
+    title: "Ações relacionadas à NR-1",
+    description:
+      "Dificuldade para identificar riscos, estabelecer prioridades e estruturar ações.",
     icon: ClipboardCheck,
   },
 ];
+
+const whatsappNumber = "5511999999999";
+
+const whatsappMessage = encodeURIComponent(
+  "Olá! Gostaria de solicitar uma avaliação sobre Gestão de Riscos Psicossociais e apoio à NR-1.",
+);
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 ---
 
 <section
   id="desafios"
   class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
 >
-  <!-- Curva superior direita -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -right-56 -top-72 hidden size-[560px] rotate-[18deg] rounded-[46%] border border-brand-500/30 xl:block"
-  >
-  </div>
-
-  <!-- Pontos -->
-  <div
-    aria-hidden="true"
-    class="pointer-events-none absolute right-[17%] top-8 hidden grid-cols-4 gap-[14px] opacity-50 xl:grid"
+    class="pointer-events-none absolute right-[7%] top-16 hidden grid-cols-4 gap-4 lg:grid"
   >
     {
       Array.from({ length: 12 }).map(() => (
-        <span class="size-[7px] rounded-full bg-[#c8e2df]" />
+        <span class="size-2 rounded-full bg-[#36C5BA]/20"></span>
       ))
     }
   </div>
 
-  <!-- Forma inferior esquerda -->
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -bottom-72 -left-56 hidden size-[560px] rounded-full bg-[#e8f3f1] xl:block"
-  >
-  </div>
+    class="pointer-events-none absolute -right-52 -top-64 hidden size-[540px] rounded-full border border-[#36C5BA]/20 xl:block"
+  ></div>
 
   <div
     aria-hidden="true"
-    class="pointer-events-none absolute -bottom-[310px] -left-44 hidden size-[590px] rounded-full border border-brand-500/25 xl:block"
-  >
-  </div>
+    class="pointer-events-none absolute -bottom-52 -left-44 hidden size-[440px] rounded-full bg-[#36C5BA]/[0.06] xl:block"
+  ></div>
 
   <div
     class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
   >
-    <!-- Cabeçalho -->
-    <div class="mx-auto max-w-[850px] text-center">
+    <div class="mx-auto max-w-[860px] text-center">
       <div
-        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 sm:text-[13px]"
+        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-[#147b75] min-[390px]:text-[11px] sm:px-5 sm:py-3 sm:text-[13px]"
       >
         <ShieldCheck
-          size={24}
+          size={22}
           strokeWidth={2}
           aria-hidden="true"
           class="shrink-0"
@@ -93,76 +89,116 @@ const challenges = [
       </div>
 
       <h2
-        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+        class="mt-6 text-[clamp(2rem,8vw,2.9rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-[#071f31] sm:mt-7 sm:text-[clamp(2.4rem,5.8vw,3.2rem)] lg:text-[clamp(2.45rem,3.4vw,2.9rem)] xl:text-[46px]"
       >
         Sua empresa enfrenta
-        <span class="block text-brand-600"> algum destes desafios? </span>
+
+        <span class="block text-[#36C5BA]">
+          algum destes desafios?
+        </span>
       </h2>
+
+      <div
+        class="mx-auto mt-5 h-[3px] w-14 rounded-full bg-[#36C5BA]"
+      ></div>
+
+      <p
+        class="mx-auto mt-5 max-w-[720px] text-[16px] leading-[1.65] text-[#42545f]"
+      >
+        Alguns sinais aparecem silenciosamente no cotidiano, mas afetam
+        diretamente a saúde das equipes, o clima organizacional e os
+        resultados da empresa.
+      </p>
     </div>
 
-    <!-- Cards -->
-    <div
-      class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-4 lg:gap-4 xl:gap-5"
-    >
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
       {
-        challenges.map((challenge) => {
-          const Icon = challenge.icon;
+        challenges.map((item, index) => {
+          const Icon = item.icon;
 
           return (
-            <article class="flex min-h-[280px] flex-col items-center justify-center rounded-[22px] border border-[#dbe6e4] bg-white px-5 py-8 text-center shadow-[0_12px_35px_rgb(7_29_43_/_7%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_11%)] lg:min-h-[300px]">
-              <div class="flex size-[112px] items-center justify-center rounded-full bg-gradient-to-br from-[#eef7f5] to-[#e0efed] text-brand-700 lg:size-[120px]">
-                <Icon size={55} strokeWidth={1.65} aria-hidden="true" />
+            <article
+              class="group relative flex min-h-[350px] flex-col overflow-hidden rounded-[28px] border border-[#dfe9e7] bg-white p-7 shadow-[0_16px_45px_rgb(7_31_49_/_6%)] transition duration-300 hover:-translate-y-2 hover:border-[#36C5BA]/45 hover:shadow-[0_24px_60px_rgb(7_31_49_/_10%)]"
+            >
+              <span
+                class="absolute right-6 top-5 text-[42px] font-extrabold leading-none tracking-[-0.07em] text-[#071f31]/[0.055]"
+              >
+                0{index + 1}
+              </span>
+
+              <div
+                class="flex size-[102px] items-center justify-center rounded-[30px] bg-gradient-to-br from-[#36C5BA]/15 to-[#36C5BA]/5 text-[#147b75] transition duration-300 group-hover:scale-105"
+              >
+                <Icon
+                  size={46}
+                  strokeWidth={1.6}
+                  aria-hidden="true"
+                />
               </div>
 
-              <h3 class="mt-6 max-w-[250px] text-[18px] font-extrabold leading-[1.35] text-ink-950 lg:text-[19px]">
-                {challenge.title}
-              </h3>
+              <div class="mt-auto pt-9">
+                <h3
+                  class="text-[21px] font-extrabold leading-[1.2] tracking-[-0.035em] text-[#071f31]"
+                >
+                  {item.title}
+                </h3>
 
-              <div class="mt-5 h-[3px] w-11 rounded-full bg-brand-600" />
+                <p class="mt-3 text-[15px] leading-[1.65] text-[#42545f]">
+                  {item.description}
+                </p>
+              </div>
+
+              <div
+                class="absolute bottom-0 left-0 h-1 w-0 bg-gradient-to-r from-[#147b75] to-[#36C5BA] transition-all duration-500 group-hover:w-full"
+              ></div>
             </article>
           );
         })
       }
     </div>
 
-    <!-- Destaque -->
     <div
-      class="mx-auto mt-8 flex max-w-[980px] flex-col items-center gap-5 rounded-[24px] bg-gradient-to-r from-[#edf5f4] to-[#e8f1ef] px-6 py-6 sm:flex-row sm:px-8 lg:px-10"
+      class="mx-auto mt-9 max-w-[930px] rounded-[24px] border border-[#36C5BA]/15 bg-[#f1f8f7] px-6 py-6 sm:px-8"
     >
-      <div
-        class="flex size-16 shrink-0 items-center justify-center rounded-full border-2 border-brand-600 text-brand-700"
-      >
-        <Star size={31} strokeWidth={1.8} aria-hidden="true" />
+      <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
+        <div
+          class="flex size-[70px] shrink-0 items-center justify-center rounded-full bg-white text-[#147b75] shadow-[0_10px_30px_rgb(7_31_49_/_7%)]"
+        >
+          <Sparkles
+            size={31}
+            strokeWidth={1.7}
+            aria-hidden="true"
+          />
+        </div>
+
+        <div class="hidden h-14 w-px bg-[#147b75]/20 sm:block"></div>
+
+        <p class="text-[16px] leading-[1.65] text-[#263a43]">
+          Nosso programa transforma esses sinais em
+
+          <strong class="font-extrabold text-[#147b75]">
+            diagnóstico, prioridades e ações práticas.
+          </strong>
+        </p>
       </div>
-
-      <div class="hidden h-16 w-px shrink-0 bg-brand-500/45 sm:block"></div>
-
-      <p
-        class="text-center text-[16px] leading-7 text-ink-950 sm:text-left sm:text-[18px] lg:text-[19px]"
-      >
-        Nosso programa transforma esses sinais em
-        <strong class="font-extrabold text-brand-700">
-          diagnóstico, prioridades e ações práticas.
-        </strong>
-      </p>
     </div>
 
-    <!-- CTA -->
-    <div class="mt-6 flex justify-center">
+    <div class="mt-8 flex justify-center">
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] !text-white shadow-[0_16px_34px_rgb(0_95_92_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_95_92_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+        aria-label="Solicitar uma avaliação pelo WhatsApp"
+        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#147b75] to-[#36C5BA] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(54_197_186_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(54_197_186_/_30%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
       >
-        <MessageCircleMore
+        <MessageCircle
           size={25}
           strokeWidth={2}
           aria-hidden="true"
           class="shrink-0"
         />
 
-        <span class="text-left"> Solicitar uma avaliação </span>
+        <span class="text-left">Solicitar uma avaliação</span>
 
         <ArrowRight
           size={27}

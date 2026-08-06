@@ -7,7 +7,6 @@ import {
   MessageCircle,
   Settings2,
 } from "@lucide/astro";
-import { MessageCircleMore } from "@lucide/astro";
 
 const whatsappNumber = "5511999999999";
 
@@ -21,26 +20,33 @@ const steps = [
   {
     number: "01",
     title: "Diagnóstico",
-    description:
-      "Pesquisa e entrevistas para compreender a realidade da empresa.",
+    description: "Pesquisa e entrevistas.",
+    detail:
+      "Levantamos informações com equipes, RH e lideranças para compreender a realidade da organização.",
     icon: FileSearch,
   },
   {
     number: "02",
     title: "Relatório",
-    description: "Identificação dos riscos, prioridades e pontos de atenção.",
+    description: "Riscos e prioridades.",
+    detail:
+      "Organizamos os principais fatores identificados e definimos os pontos que precisam de atenção.",
     icon: ClipboardList,
   },
   {
     number: "03",
     title: "Implementação",
-    description: "Plano de ação, orientações e treinamentos personalizados.",
+    description: "Plano de ação e treinamentos.",
+    detail:
+      "Transformamos o diagnóstico em orientações, ações práticas e capacitações personalizadas.",
     icon: Settings2,
   },
   {
     number: "04",
     title: "Acompanhamento",
-    description: "Indicadores coletivos, suporte e orientação contínua.",
+    description: "Indicadores e orientação.",
+    detail:
+      "Acompanhamos a evolução das ações e apoiamos o RH na análise dos indicadores coletivos.",
     icon: BarChart3,
   },
 ];
@@ -48,92 +54,150 @@ const steps = [
 
 <section
   id="como-funciona"
-  class="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+  class="relative overflow-hidden bg-[#073638] py-16 text-white sm:py-20 lg:py-24"
 >
+  <!-- Elementos decorativos -->
   <div
-    class="mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-52 -top-64 size-[520px] rounded-full border border-white/10"
+  ></div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-72 -left-56 size-[560px] rounded-full bg-white/[0.035]"
+  ></div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
   >
-    <div
-      class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
-    >
-      <div class="max-w-[680px]">
+    <!-- Cabeçalho assimétrico -->
+    <div class="grid gap-7 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+      <div>
         <span
-          class="text-[11px] font-extrabold uppercase tracking-[0.1em] text-brand-700 sm:text-xs"
+          class="text-[11px] font-extrabold uppercase tracking-[0.12em] text-[#80d8d2] sm:text-xs"
         >
           Etapas do programa
         </span>
 
         <h2
-          class="mt-4 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-ink-950 lg:text-[44px]"
+          class="mt-4 max-w-[520px] text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-white lg:text-[44px]"
         >
-          Como funciona a gestão de
-          <span class="text-brand-600">riscos psicossociais</span>
+          Da avaliação à
+          <span class="text-[#71d5cf]">ação prática</span>
         </h2>
       </div>
 
-      <p
-        class="max-w-[470px] text-[15px] leading-7 text-ink-700 sm:text-[17px]"
-      >
-        Uma jornada estruturada para transformar informações em decisões e ações
-        aplicáveis à realidade da empresa.
-      </p>
+      <div class="lg:border-l lg:border-white/15 lg:pl-10">
+        <p
+          class="max-w-[620px] text-[15px] leading-7 text-white/70 sm:text-[17px]"
+        >
+          Um processo estruturado para identificar riscos psicossociais,
+          definir prioridades e apoiar a empresa em cada etapa da
+          implementação.
+        </p>
+      </div>
     </div>
 
-    <div class="relative mt-12 lg:mt-14">
+    <!-- Linha do tempo -->
+    <ol
+      class="relative mt-12 grid gap-5 lg:mt-16 lg:grid-cols-4 lg:gap-0"
+      aria-label="Etapas do programa"
+    >
+      <!-- Linha horizontal desktop -->
       <div
         aria-hidden="true"
-        class="absolute left-[12.5%] right-[12.5%] top-10 hidden h-px bg-[#cfe2df] lg:block"
-      >
-      </div>
+        class="absolute left-[12.5%] right-[12.5%] top-11 hidden h-px bg-gradient-to-r from-transparent via-[#71d5cf]/60 to-transparent lg:block"
+      ></div>
 
-      <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {
-          steps.map((step) => {
-            const Icon = step.icon;
+      {
+        steps.map((step, index) => {
+          const Icon = step.icon;
 
-            return (
-              <li class="relative">
-                <article class="h-full rounded-[26px] border border-[#dce9e6] bg-[#fbfdfc] p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-[0_20px_55px_rgb(7_29_43_/_8%)]">
-                  <div class="flex items-center justify-between gap-4">
-                    <div class="relative z-10 inline-flex size-20 items-center justify-center rounded-[22px] bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_14px_30px_rgb(0_104_100_/_18%)]">
-                      <Icon size={31} strokeWidth={1.8} aria-hidden="true" />
-                    </div>
-
-                    <span class="text-[34px] font-extrabold tracking-[-0.06em] text-brand-100">
-                      {step.number}
-                    </span>
+          return (
+            <li
+              class:list={[
+                "relative",
+                index > 0 && "lg:border-l lg:border-white/10",
+              ]}
+            >
+              <article
+                class="group relative h-full rounded-[24px] border border-white/10 bg-white/[0.055] p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-1 hover:border-[#71d5cf]/45 hover:bg-white/[0.085] lg:rounded-none lg:border-y-0 lg:border-r-0 lg:bg-transparent lg:px-7 lg:py-0 lg:backdrop-blur-none lg:hover:bg-transparent"
+              >
+                <div class="flex items-center justify-between gap-4">
+                  <div
+                    class="relative z-10 flex size-[88px] items-center justify-center rounded-[26px] border border-white/15 bg-[#0b4a4b] text-[#8ee2dc] shadow-[0_18px_35px_rgb(0_0_0_/_16%)] transition duration-300 group-hover:scale-105 group-hover:bg-[#0d5656]"
+                  >
+                    <Icon
+                      size={34}
+                      strokeWidth={1.7}
+                      aria-hidden="true"
+                    />
                   </div>
 
-                  <h3 class="mt-6 text-xl font-extrabold text-ink-950">
+                  <span
+                    class="text-[42px] font-extrabold tracking-[-0.07em] text-white/10"
+                  >
+                    {step.number}
+                  </span>
+                </div>
+
+                <div class="mt-7">
+                  <span
+                    class="text-[11px] font-bold uppercase tracking-[0.1em] text-[#71d5cf]"
+                  >
+                    Etapa {step.number}
+                  </span>
+
+                  <h3 class="mt-2 text-[22px] font-extrabold text-white">
                     {step.title}
                   </h3>
 
-                  <p class="mt-3 text-sm leading-6 text-ink-700 sm:text-[15px]">
+                  <p class="mt-2 text-[15px] font-bold text-white/85">
                     {step.description}
                   </p>
-                </article>
-              </li>
-            );
-          })
-        }
-      </ol>
-    </div>
 
-    <div class="mt-10 flex justify-center lg:mt-12">
+                  <p class="mt-4 text-sm leading-6 text-white/60">
+                    {step.detail}
+                  </p>
+                </div>
+              </article>
+            </li>
+          );
+        })
+      }
+    </ol>
+
+    <!-- Rodapé do bloco -->
+    <div
+      class="mt-12 flex flex-col gap-6 rounded-[26px] border border-white/10 bg-white/[0.055] px-6 py-6 sm:px-8 lg:flex-row lg:items-center lg:justify-between"
+    >
+      <div class="max-w-[670px]">
+        <span
+          class="text-[11px] font-extrabold uppercase tracking-[0.1em] text-[#71d5cf]"
+        >
+          Acompanhamento especializado
+        </span>
+
+        <p class="mt-2 text-[17px] font-bold leading-7 text-white sm:text-[19px]">
+          Cada etapa é adaptada ao porte, ao contexto e às necessidades da
+          sua empresa.
+        </p>
+      </div>
+
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_95_92_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_95_92_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_0_0_/_20%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_0_0_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] lg:w-auto lg:min-w-[390px] xl:text-[15px]"
       >
-        <MessageCircleMore
+        <MessageCircle
           size={25}
           strokeWidth={2}
           aria-hidden="true"
           class="shrink-0"
         />
 
-        <span class="text-left"> Solicitar uma avaliação </span>
+        <span>Falar com um especialista</span>
 
         <ArrowRight
           size={27}
