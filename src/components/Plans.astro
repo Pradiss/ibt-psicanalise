@@ -98,7 +98,7 @@ const plans = [
       <div class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"></div>
     </div>
 
-    <div class="mx-auto mt-10 grid max-w-[980px] gap-5 lg:mt-12 lg:grid-cols-2">
+    <div class="mx-auto mt-8 grid max-w-[980px] gap-4 sm:mt-10 lg:mt-12 lg:grid-cols-2 lg:gap-5">
       {
         plans.map((plan, index) => {
           const Icon = plan.icon;
@@ -106,7 +106,7 @@ const plans = [
           return (
             <article
               class:list={[
-                "relative overflow-hidden rounded-[26px] border p-7 shadow-[0_16px_45px_rgb(7_29_43_/_7%)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgb(7_29_43_/_12%)] sm:p-8",
+                "relative overflow-hidden rounded-[22px] border p-5 shadow-[0_16px_45px_rgb(7_29_43_/_7%)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgb(7_29_43_/_12%)] sm:rounded-[26px] sm:p-7 lg:p-8",
                 index === 0
                   ? "border-[#dbe6e4] bg-white"
                   : "border-brand-600 bg-[#073b3b] text-white",
@@ -114,7 +114,7 @@ const plans = [
             >
               <div
                 class:list={[
-                  "inline-flex size-16 items-center justify-center rounded-[18px]",
+                  "inline-flex size-14 items-center justify-center rounded-[16px] sm:size-16 sm:rounded-[18px]",
                   index === 0
                     ? "bg-gradient-to-br from-[#eef7f5] to-[#e0efed] text-brand-700"
                     : "bg-white/10 text-[#8ee2dc]",
@@ -124,12 +124,13 @@ const plans = [
                   size={31}
                   strokeWidth={1.8}
                   aria-hidden="true"
+                  class="size-7 sm:size-[31px]"
                 />
               </div>
 
               <h3
                 class:list={[
-                  "mt-6 text-[24px] font-extrabold leading-[1.25]",
+                  "mt-5 text-[21px] font-extrabold leading-[1.25] sm:mt-6 sm:text-[24px]",
                   index === 0 ? "text-ink-950" : "text-white",
                 ]}
               >
@@ -138,14 +139,14 @@ const plans = [
 
               <p
                 class:list={[
-                  "mt-3 text-[15px] leading-7",
+                  "mt-3 text-[14px] leading-6 sm:text-[15px] sm:leading-7",
                   index === 0 ? "text-ink-700" : "text-white/75",
                 ]}
               >
                 {plan.description}
               </p>
 
-              <ul class="mt-6 space-y-3">
+              <ul class="mt-5 space-y-2.5 sm:mt-6 sm:space-y-3">
                 {
                   plan.items.map((item) => (
                     <li class="flex items-center gap-3">

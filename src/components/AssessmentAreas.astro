@@ -73,7 +73,7 @@ const assessmentAreas = [
   ></div>
 
   <div
-    class="relative mx-auto w-[min(calc(100%-32px),1360px)] sm:w-[min(calc(100%-48px),1360px)] xl:w-[min(calc(100%-64px),1360px)]"
+    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
   >
     <!-- Cabeçalho -->
     <div class="mx-auto max-w-[880px] text-center">
@@ -110,43 +110,43 @@ const assessmentAreas = [
     </div>
 
     <!-- Grid -->
-    <div class="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 md:grid-cols-2 xl:mt-12 xl:grid-cols-3">
       {
         assessmentAreas.map((item) => {
           const Icon = item.icon;
 
           return (
             <article
-              class="group relative overflow-hidden rounded-[24px] border border-[#dfe8e6] bg-white px-5 py-6 shadow-[0_10px_34px_rgb(7_31_49_/_5%)] transition duration-300 hover:-translate-y-1 hover:border-[#36C5BA]/45 hover:shadow-[0_18px_44px_rgb(7_31_49_/_9%)] sm:px-6"
+              class="group relative overflow-hidden rounded-[20px] border border-[#dfe8e6] bg-white px-3 py-5 text-center shadow-[0_10px_34px_rgb(7_31_49_/_5%)] transition duration-300 hover:-translate-y-1 hover:border-[#36C5BA]/45 hover:shadow-[0_18px_44px_rgb(7_31_49_/_9%)] sm:rounded-[24px] sm:px-5 sm:py-6 md:text-left lg:px-6"
             >
               <div
-                class="grid min-h-[170px] grid-cols-[90px_1px_1fr] items-center gap-5 sm:grid-cols-[112px_1px_1fr]"
+                class="flex min-h-[185px] flex-col items-center justify-center gap-3 sm:min-h-[210px] sm:gap-4 md:grid md:min-h-[170px] md:grid-cols-[90px_1px_1fr] md:items-center md:gap-5 lg:grid-cols-[112px_1px_1fr]"
               >
                 <!-- Ícone -->
                 <div
-                  class="flex size-[90px] items-center justify-center rounded-full bg-gradient-to-br from-[#edf7f6] to-[#e4f1ef] text-[#147b75] transition duration-300 group-hover:scale-105 sm:size-[112px]"
+                  class="flex size-[62px] items-center justify-center rounded-full bg-gradient-to-br from-[#edf7f6] to-[#e4f1ef] text-[#147b75] transition duration-300 group-hover:scale-105 sm:size-[76px] md:size-[90px] lg:size-[112px]"
                 >
                   <Icon
                     size={46}
                     strokeWidth={1.65}
                     aria-hidden="true"
-                    class="sm:size-[52px]"
+                    class="size-8 sm:size-9 md:size-[46px] lg:size-[52px]"
                   />
                 </div>
 
                 <!-- Divisor -->
-                <div class="h-[108px] w-px bg-[#d9e5e3]"></div>
+                <div class="hidden h-[108px] w-px bg-[#d9e5e3] md:block"></div>
 
                 <!-- Texto -->
                 <div>
                   <h3
-                    class="text-[20px] font-extrabold leading-[1.15] tracking-[-0.035em] text-[#147b75] sm:text-[22px]"
+                    class="text-[15px] font-extrabold leading-[1.18] tracking-[-0.02em] text-[#147b75] sm:text-[17px] md:text-[20px] lg:text-[22px]"
                   >
                     {item.title}
                   </h3>
 
                   <p
-                    class="mt-3 text-[15px] leading-[1.65] text-[#263640] sm:text-[16px]"
+                    class="mt-2 text-[12px] leading-[1.45] text-[#263640] sm:text-[13px] md:mt-3 md:text-[15px] md:leading-[1.65] lg:text-[16px]"
                   >
                     {item.description}
                   </p>

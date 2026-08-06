@@ -103,7 +103,7 @@ const benefits = [
 
     <!-- Cards -->
     <div
-      class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5"
+      class="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 lg:mt-12 lg:grid-cols-3 lg:gap-5"
     >
       {
         benefits.map((item) => {
@@ -111,27 +111,28 @@ const benefits = [
 
           return (
             <article
-              class="group flex min-h-[190px] items-center gap-5 rounded-[22px] border border-[#dbe6e4] bg-white p-6 shadow-[0_12px_35px_rgb(7_29_43_/_6%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_10%)]"
+              class="group flex min-h-[170px] flex-col items-center justify-center gap-3 rounded-[20px] border border-[#dbe6e4] bg-white p-4 text-center shadow-[0_12px_35px_rgb(7_29_43_/_6%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_10%)] sm:min-h-[180px] sm:gap-4 sm:rounded-[22px] sm:p-5 md:min-h-[190px] md:flex-row md:justify-start md:gap-5 md:p-6 md:text-left"
             >
               <div
-                class="flex size-[76px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_12px_28px_rgb(0_104_100_/_18%)]"
+                class="flex size-[58px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_12px_28px_rgb(0_104_100_/_18%)] sm:size-16 md:size-[76px]"
               >
                 <Icon
                   size={34}
                   strokeWidth={1.7}
                   aria-hidden="true"
+                  class="size-7 sm:size-8 md:size-[34px]"
                 />
               </div>
 
               <div>
                 <h3
-                  class="text-[18px] font-extrabold leading-[1.35] text-brand-800"
+                  class="text-[15px] font-extrabold leading-[1.25] text-brand-800 sm:text-[16px] md:text-[18px] md:leading-[1.35]"
                 >
                   {item.title}
                 </h3>
 
                 <p
-                  class="mt-2 text-[14px] leading-6 text-ink-700 sm:text-[15px]"
+                  class="mt-2 text-[12px] leading-[1.45] text-ink-700 sm:text-[13px] md:text-[15px] md:leading-6"
                 >
                   {item.description}
                 </p>
