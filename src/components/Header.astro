@@ -1,9 +1,5 @@
 ---
-import {
-  Menu,
-  MessageCircle,
-  X,
-} from "@lucide/astro";
+import { MessageCircle } from "@lucide/astro";
 
 import logoImage from "../assets/images/logo-ibt.svg";
 
@@ -29,7 +25,7 @@ const menuItems = [
     href: "#beneficios",
   },
   {
-    label: "Planos",
+    label: "Contratação",
     href: "#planos",
   },
   {
@@ -41,10 +37,10 @@ const menuItems = [
 
 <header
   id="site-header"
-  class="fixed inset-x-0 top-0 z-[100]  bg-[#fdfdfb]/95 backdrop-blur-xl"
+  class="fixed inset-x-0 top-0 z-[100] border-b border-[#dfe9e7]/80 bg-[#fdfdfb]/95 backdrop-blur-xl"
 >
   <div
-    class="mx-auto flex h-[76px] w-[min(calc(100%-32px),1250px)] items-center justify-between sm:w-[min(calc(100%-48px),1250px)] lg:h-[82px] xl:w-[min(calc(100%-64px),1250px)]"
+    class="mx-auto flex h-[74px] w-[min(calc(100%-32px),1250px)] items-center justify-between sm:w-[min(calc(100%-48px),1250px)] lg:h-[82px] xl:w-[min(calc(100%-64px),1250px)]"
   >
     <!-- Logo -->
     <a
@@ -57,7 +53,7 @@ const menuItems = [
         width={logoImage.width}
         height={logoImage.height}
         alt="IBT Psicanálise"
-        class="h-auto w-[132px] sm:w-[145px]"
+        class="h-auto w-[130px] sm:w-[145px]"
       />
     </a>
 
@@ -70,7 +66,7 @@ const menuItems = [
         menuItems.map((item) => (
           <a
             href={item.href}
-            class="relative py-2 text-[13px] font-bold text-[#34464e] transition hover:text-[#147b75]"
+            class="relative py-2 text-[13px] font-bold text-[#34464e] transition duration-200 hover:text-[#147b75]"
           >
             {item.label}
           </a>
@@ -94,36 +90,38 @@ const menuItems = [
       <span>Falar com especialista</span>
     </a>
 
-    <!-- Botão hambúrguer -->
+    <!-- Botão hambúrguer mobile -->
     <button
       id="menu-button"
       type="button"
       aria-label="Abrir menu"
       aria-controls="mobile-menu"
       aria-expanded="false"
-      class="relative z-20 flex size-11 items-center justify-center rounded-full border border-[#dbe6e4] bg-white text-[#147b75] shadow-[0_8px_20px_rgb(7_31_49_/_6%)] transition hover:border-[#36C5BA]/50 hover:bg-[#f1f8f7] lg:hidden"
+      class="relative z-20 flex size-11 shrink-0 items-center justify-center rounded-[14px] border border-[#dbe6e4] bg-white text-[#147b75] shadow-[0_8px_20px_rgb(7_31_49_/_6%)] transition duration-200 hover:border-[#36C5BA]/50 hover:bg-[#f1f8f7] active:scale-95 lg:hidden"
     >
-      <Menu
-        id="menu-open-icon"
-        size={25}
-        strokeWidth={2}
-        aria-hidden="true"
-      />
+      <span class="relative block h-[18px] w-[23px]">
+        <span
+          id="menu-line-1"
+          class="absolute left-0 top-0 h-[2px] w-full rounded-full bg-current transition-all duration-300"
+        ></span>
 
-      <X
-        id="menu-close-icon"
-        size={25}
-        strokeWidth={2}
-        aria-hidden="true"
-        class="hidden"
-      />
+        <span
+          id="menu-line-2"
+          class="absolute left-0 top-1/2 h-[2px] w-[17px] -translate-y-1/2 rounded-full bg-current transition-all duration-300"
+        ></span>
+
+        <span
+          id="menu-line-3"
+          class="absolute bottom-0 left-0 h-[2px] w-full rounded-full bg-current transition-all duration-300"
+        ></span>
+      </span>
     </button>
   </div>
 
   <!-- Menu mobile -->
   <div
     id="mobile-menu"
-    class="pointer-events-none invisible absolute inset-x-0 top-full translate-y-[-8px] border-b border-[#dfe9e7] bg-[#fdfdfb] opacity-0 shadow-[0_22px_50px_rgb(7_31_49_/_10%)] transition duration-200 lg:hidden"
+    class="pointer-events-none invisible absolute inset-x-0 top-full translate-y-[-10px] border-b border-[#dfe9e7] bg-[#fdfdfb] opacity-0 shadow-[0_20px_45px_rgb(7_31_49_/_10%)] transition-all duration-300 lg:hidden"
   >
     <div
       class="mx-auto w-[min(calc(100%-32px),1250px)] py-5 sm:w-[min(calc(100%-48px),1250px)]"
@@ -137,7 +135,7 @@ const menuItems = [
             <a
               href={item.href}
               data-mobile-link
-              class="border-b border-[#e6edeb] py-4 text-[15px] font-extrabold text-[#17303a] transition hover:pl-2 hover:text-[#147b75]"
+              class="flex min-h-[54px] items-center border-b border-[#e6edeb] text-[15px] font-bold text-[#17303a] transition duration-200 hover:pl-2 hover:text-[#147b75]"
             >
               {item.label}
             </a>
@@ -166,8 +164,11 @@ const menuItems = [
 <script is:inline>
   const menuButton = document.querySelector("#menu-button");
   const mobileMenu = document.querySelector("#mobile-menu");
-  const menuOpenIcon = document.querySelector("#menu-open-icon");
-  const menuCloseIcon = document.querySelector("#menu-close-icon");
+
+  const menuLine1 = document.querySelector("#menu-line-1");
+  const menuLine2 = document.querySelector("#menu-line-2");
+  const menuLine3 = document.querySelector("#menu-line-3");
+
   const mobileLinks = document.querySelectorAll("[data-mobile-link]");
 
   function openMenu() {
@@ -179,7 +180,7 @@ const menuItems = [
     mobileMenu.classList.remove(
       "pointer-events-none",
       "invisible",
-      "translate-y-[-8px]",
+      "translate-y-[-10px]",
       "opacity-0",
     );
 
@@ -190,8 +191,26 @@ const menuItems = [
       "opacity-100",
     );
 
-    menuOpenIcon?.classList.add("hidden");
-    menuCloseIcon?.classList.remove("hidden");
+    menuLine1?.classList.remove("top-0");
+    menuLine1?.classList.add(
+      "top-1/2",
+      "-translate-y-1/2",
+      "rotate-45",
+    );
+
+    menuLine2?.classList.add(
+      "opacity-0",
+      "scale-x-0",
+    );
+
+    menuLine3?.classList.remove("bottom-0");
+    menuLine3?.classList.add(
+      "bottom-1/2",
+      "translate-y-1/2",
+      "-rotate-45",
+    );
+
+    document.body.style.overflow = "hidden";
   }
 
   function closeMenu() {
@@ -210,16 +229,37 @@ const menuItems = [
     mobileMenu.classList.add(
       "pointer-events-none",
       "invisible",
-      "translate-y-[-8px]",
+      "translate-y-[-10px]",
       "opacity-0",
     );
 
-    menuOpenIcon?.classList.remove("hidden");
-    menuCloseIcon?.classList.add("hidden");
+    menuLine1?.classList.remove(
+      "top-1/2",
+      "-translate-y-1/2",
+      "rotate-45",
+    );
+
+    menuLine1?.classList.add("top-0");
+
+    menuLine2?.classList.remove(
+      "opacity-0",
+      "scale-x-0",
+    );
+
+    menuLine3?.classList.remove(
+      "bottom-1/2",
+      "translate-y-1/2",
+      "-rotate-45",
+    );
+
+    menuLine3?.classList.add("bottom-0");
+
+    document.body.style.overflow = "";
   }
 
   menuButton?.addEventListener("click", () => {
-    const isOpen = menuButton.getAttribute("aria-expanded") === "true";
+    const isOpen =
+      menuButton.getAttribute("aria-expanded") === "true";
 
     if (isOpen) {
       closeMenu();
@@ -234,6 +274,20 @@ const menuItems = [
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menuButton || !mobileMenu) return;
+
+    const target = event.target;
+
+    if (
+      target instanceof Node &&
+      !menuButton.contains(target) &&
+      !mobileMenu.contains(target)
+    ) {
       closeMenu();
     }
   });
