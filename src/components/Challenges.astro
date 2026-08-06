@@ -108,7 +108,7 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
     <!-- Desafios -->
     <div
-      class="mt-11 grid gap-4 sm:grid-cols-2 lg:mt-12 xl:grid-cols-4"
+      class="mt-8 grid grid-cols-2 gap-3 sm:mt-10 sm:gap-4 lg:mt-12 xl:grid-cols-4"
     >
       {
         challenges.map((item, index) => {
@@ -116,33 +116,34 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
           return (
             <article
-              class="group relative flex min-h-[295px] flex-col items-center overflow-hidden rounded-[28px] border border-[#dfe9e7] bg-white px-6 py-7 text-center shadow-[0_14px_38px_rgb(7_31_49_/_5%)] transition duration-300 hover:-translate-y-1.5 hover:border-[#36C5BA]/45 hover:shadow-[0_22px_52px_rgb(7_31_49_/_9%)] sm:min-h-[315px]"
+              class="group relative flex min-h-[178px] flex-col items-center overflow-hidden rounded-[20px] border border-[#dfe9e7] bg-white px-3 py-5 text-center shadow-[0_14px_38px_rgb(7_31_49_/_5%)] transition duration-300 hover:-translate-y-1.5 hover:border-[#36C5BA]/45 hover:shadow-[0_22px_52px_rgb(7_31_49_/_9%)] sm:min-h-[230px] sm:rounded-[24px] sm:px-5 sm:py-6 md:min-h-[295px] md:rounded-[28px] md:px-6 md:py-7 lg:min-h-[315px]"
             >
               <span
-                class="absolute right-5 top-4 text-[34px] font-extrabold leading-none tracking-[-0.06em] text-[#071f31]/[0.055]"
+                class="absolute right-3 top-3 text-[24px] font-extrabold leading-none tracking-[-0.06em] text-[#071f31]/[0.055] sm:right-5 sm:top-4 sm:text-[30px] md:text-[34px]"
               >
                 0{index + 1}
               </span>
 
               <div
-                class="flex size-[112px] items-center justify-center rounded-full bg-gradient-to-br from-[#eef8f7] to-[#dcefeb] text-[#147b75] transition duration-300 group-hover:scale-105"
+                class="flex size-[64px] items-center justify-center rounded-full bg-gradient-to-br from-[#eef8f7] to-[#dcefeb] text-[#147b75] transition duration-300 group-hover:scale-105 sm:size-[84px] md:size-[112px]"
               >
                 <Icon
                   size={50}
                   strokeWidth={1.65}
                   aria-hidden="true"
+                  class="size-8 sm:size-10 md:size-[50px]"
                 />
               </div>
 
               <h3
-                class="mx-auto mt-7 max-w-[235px] text-[20px] font-extrabold leading-[1.28] tracking-[-0.035em] text-[#071f31] sm:text-[21px]"
+                class="mx-auto mt-4 max-w-[135px] text-[14px] font-extrabold leading-[1.25] tracking-[-0.025em] text-[#071f31] sm:mt-5 sm:max-w-[210px] sm:text-[18px] md:mt-7 md:max-w-[235px] md:text-[20px] lg:text-[21px]"
               >
                 {item.title}
               </h3>
 
               <div class="mt-auto pt-6">
                 <div
-                  class="mx-auto h-[3px] w-12 rounded-full bg-[#147b75] transition-all duration-300 group-hover:w-20 group-hover:bg-[#36C5BA]"
+                  class="mx-auto h-[3px] w-10 rounded-full bg-[#147b75] transition-all duration-300 group-hover:w-16 group-hover:bg-[#36C5BA] sm:w-12 sm:group-hover:w-20"
                 ></div>
               </div>
             </article>
