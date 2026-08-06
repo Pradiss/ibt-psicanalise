@@ -1,0 +1,113 @@
+---
+import {
+  BarChart3,
+  GraduationCap,
+  Handshake,
+  MapPin,
+  ShieldCheck,
+  UserRoundCheck,
+} from "@lucide/astro";
+
+const differentials = [
+  {
+    title: "Atendimento presencial e personalizado",
+    icon: MapPin,
+  },
+  {
+    title: "Especialistas em desenvolvimento humano",
+    icon: UserRoundCheck,
+  },
+  {
+    title: "Relatórios e indicadores coletivos",
+    icon: BarChart3,
+  },
+  {
+    title: "Treinamentos conforme a realidade da empresa",
+    icon: GraduationCap,
+  },
+  {
+    title: "Atuação ética e sigilosa",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Acompanhamento contínuo",
+    icon: Handshake,
+  },
+];
+---
+
+<section
+  id="diferenciais"
+  class="relative overflow-hidden bg-[#f4f9f8] py-16 sm:py-20 lg:py-24"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-72 -left-60 hidden size-[560px] rounded-full bg-[#e8f3f1] xl:block"
+  ></div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div class="mx-auto max-w-[850px] text-center">
+      <div
+        class="inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 shadow-sm sm:text-[13px]"
+      >
+        <ShieldCheck
+          size={24}
+          strokeWidth={2}
+          aria-hidden="true"
+        />
+
+        <span>Experiência, cuidado e estratégia</span>
+      </div>
+
+      <h2
+        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+      >
+        Por que escolher o
+        <span class="text-brand-600">IBTPSICANALISE?</span>
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-[720px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
+      >
+        Uma atuação especializada, ética e adaptada à realidade de cada
+        organização.
+      </p>
+
+      <div class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"></div>
+    </div>
+
+    <div
+      class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5"
+    >
+      {
+        differentials.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <article
+              class="group flex min-h-[170px] items-center gap-5 rounded-[22px] border border-[#dbe6e4] bg-white p-6 shadow-[0_12px_35px_rgb(7_29_43_/_6%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_10%)]"
+            >
+              <div
+                class="flex size-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#eef7f5] to-[#e0efed] text-brand-700"
+              >
+                <Icon
+                  size={30}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+              </div>
+
+              <h3
+                class="text-[17px] font-extrabold leading-[1.4] text-ink-950 sm:text-[18px]"
+              >
+                {item.title}
+              </h3>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

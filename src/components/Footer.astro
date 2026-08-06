@@ -1,0 +1,93 @@
+---
+import {
+  Instagram,
+  Mail,
+  MessageCircle,
+  Phone,
+} from "@lucide/astro";
+
+import logoImage from "../assets/images/logo-ibt.svg";
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-[#05282d] text-white">
+  <div
+    class="mx-auto grid w-[min(calc(100%-32px),1250px)] gap-10 py-12 sm:w-[min(calc(100%-48px),1250px)] md:grid-cols-2 lg:grid-cols-[1.2fr_0.8fr_0.8fr] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div>
+      <img
+        src={logoImage.src}
+        width={logoImage.width}
+        height={logoImage.height}
+        alt="IBT Psicanálise"
+        class="h-auto w-40 brightness-0 invert"
+      />
+
+      <p class="mt-5 max-w-[420px] text-sm leading-7 text-white/70">
+        Gestão de riscos psicossociais com diagnóstico, plano de ação,
+        treinamentos e apoio à adequação à NR-1.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-extrabold uppercase tracking-[0.08em] text-[#71d5cf]">
+        Contato
+      </h3>
+
+      <ul class="mt-5 space-y-4">
+        <li>
+          <a href="https://wa.me/5511999999999" class="flex items-center gap-3 text-sm text-white/75 transition hover:text-white">
+            <MessageCircle size={20} strokeWidth={1.8} />
+            WhatsApp
+          </a>
+        </li>
+
+        <li>
+          <a href="tel:+5511999999999" class="flex items-center gap-3 text-sm text-white/75 transition hover:text-white">
+            <Phone size={20} strokeWidth={1.8} />
+            (11) 99999-9999
+          </a>
+        </li>
+
+        <li>
+          <a href="mailto:contato@ibtpsicanalise.com.br" class="flex items-center gap-3 text-sm text-white/75 transition hover:text-white">
+            <Mail size={20} strokeWidth={1.8} />
+            contato@ibtpsicanalise.com.br
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <h3 class="text-sm font-extrabold uppercase tracking-[0.08em] text-[#71d5cf]">
+        Links
+      </h3>
+
+      <ul class="mt-5 space-y-4 text-sm">
+        
+
+        <li>
+          <a href="https://ibtpsicanalise.com.br" class="text-white/75 transition hover:text-white">
+            Site institucional
+          </a>
+        </li>
+
+        <li>
+          <a href="/politica-de-privacidade" class="text-white/75 transition hover:text-white">
+            Política de Privacidade
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="border-t border-white/10">
+    <div
+      class="mx-auto flex w-[min(calc(100%-32px),1250px)] flex-col gap-2 py-5 text-xs text-white/50 sm:w-[min(calc(100%-48px),1250px)] sm:flex-row sm:items-center sm:justify-between xl:w-[min(calc(100%-64px),1250px)]"
+    >
+      <p>© {currentYear} IBTPSICANALISE. Todos os direitos reservados.</p>
+      <p>Cuidando de quem cuida de resultados.</p>
+    </div>
+  </div>
+</footer>

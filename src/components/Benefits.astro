@@ -44,32 +44,64 @@ const benefits = [
 
 <section
   id="beneficios"
-  class="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+  class="relative overflow-hidden bg-[#f5f9f8] py-16 sm:py-20 lg:py-24"
 >
+  <!-- Pontos decorativos -->
   <div
-    class="mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+    aria-hidden="true"
+    class="pointer-events-none absolute left-[8%] top-14 hidden grid-cols-3 gap-4 opacity-45 xl:grid"
   >
-    <div class="mx-auto max-w-[780px] text-center">
-      <span
-        class="text-[11px] font-extrabold uppercase tracking-[0.1em] text-brand-700 sm:text-xs"
+    {
+      Array.from({ length: 9 }).map(() => (
+        <span class="size-[8px] rounded-full bg-[#c8e2df]"></span>
+      ))
+    }
+  </div>
+
+  <!-- Curva -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-52 -bottom-72 hidden size-[560px] rounded-full border border-brand-500/25 xl:block"
+  ></div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-[850px] text-center">
+      <div
+        class="inline-flex items-center gap-3 rounded-full bg-white px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 shadow-sm sm:text-[13px]"
       >
-        Resultados para a empresa
-      </span>
+        <ShieldCheck
+          size={24}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span>Resultados para sua organização</span>
+      </div>
 
       <h2
-  class="mt-5 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-ink-950 lg:text-[44px]"
->
-  Benefícios da gestão de
-  <span class="text-brand-600"> riscos psicossociais</span>
-</h2>
+        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+      >
+        Benefícios da gestão de
+        <span class="text-brand-600">riscos psicossociais</span>
+      </h2>
 
       <p
-        class="mx-auto mt-5 max-w-[650px] text-[15px] leading-7 text-ink-700 sm:text-[17px]"
+        class="mx-auto mt-5 max-w-[720px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
       >
-        Mais segurança para o RH, mais preparo para as lideranças e melhores condições para as equipes.
+        Mais clareza para o RH, preparo para as lideranças e melhores condições
+        para o desenvolvimento das equipes.
       </p>
+
+      <div
+        class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"
+      ></div>
     </div>
 
+    <!-- Cards -->
     <div
       class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5"
     >
@@ -79,25 +111,31 @@ const benefits = [
 
           return (
             <article
-              class="rounded-[24px] border border-[#dce8e5] bg-[#fbfdfc] p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-[0_20px_55px_rgb(7_29_43_/_8%)]"
+              class="group flex min-h-[190px] items-center gap-5 rounded-[22px] border border-[#dbe6e4] bg-white p-6 shadow-[0_12px_35px_rgb(7_29_43_/_6%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_10%)]"
             >
               <div
-                class="inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_12px_26px_rgb(0_104_100_/_18%)]"
+                class="flex size-[76px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_12px_28px_rgb(0_104_100_/_18%)]"
               >
                 <Icon
-                  size={27}
-                  strokeWidth={1.8}
+                  size={34}
+                  strokeWidth={1.7}
                   aria-hidden="true"
                 />
               </div>
 
-              <h3 class="mt-5 text-[18px] font-extrabold text-ink-950">
-                {item.title}
-              </h3>
+              <div>
+                <h3
+                  class="text-[18px] font-extrabold leading-[1.35] text-brand-800"
+                >
+                  {item.title}
+                </h3>
 
-              <p class="mt-2 text-sm leading-6 text-ink-700 sm:text-[15px]">
-                {item.description}
-              </p>
+                <p
+                  class="mt-2 text-[14px] leading-6 text-ink-700 sm:text-[15px]"
+                >
+                  {item.description}
+                </p>
+              </div>
             </article>
           );
         })

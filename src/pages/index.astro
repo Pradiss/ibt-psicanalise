@@ -7,14 +7,19 @@ import Process from "../components/Process.astro";
 import AssessmentAreas from "../components/AssessmentAreas.astro";
 import Deliverables from "../components/Deliverables.astro";
 import Benefits from "../components/Benefits.astro";
+import Plans from "../components/Plans.astro";
+import Differentials from "../components/Differentials.astro";
+import Faq from "../components/Faq.astro";
+import LeadForm from "../components/LeadForm.astro";
+import Footer from "../components/Footer.astro";
+import WhatsAppButton from "../components/WhatsAppButton.astro";
 ---
 
 <Layout
   title="Gestão de Riscos Psicossociais | NR-1 | IBTPSICANALISE"
   description="Gestão de riscos psicossociais para empresas com diagnóstico, plano de ação, treinamentos e apoio à NR-1."
-  canonical="https://ibtpsicanalise.com.br/gestao-riscos-psicossociais-nr1"
 >
-    <Header />
+  <Header />
 
   <main>
     <Hero />
@@ -23,5 +28,12 @@ import Benefits from "../components/Benefits.astro";
     <AssessmentAreas />
     <Deliverables />
     <Benefits />
+    <Plans />
+    <Differentials />
+    <Faq />
+    <LeadForm />
   </main>
+
+  <Footer />
+  <WhatsAppButton />
 </Layout>

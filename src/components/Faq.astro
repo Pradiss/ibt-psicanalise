@@ -1,0 +1,129 @@
+---
+import {
+  ChevronDown,
+  HelpCircle,
+  ShieldCheck,
+} from "@lucide/astro";
+
+const faqs = [
+  {
+    question: "O que são riscos psicossociais?",
+    answer:
+      "São fatores relacionados à organização e às relações de trabalho que podem afetar a saúde emocional, como sobrecarga, conflitos, falhas de comunicação e assédio.",
+  },
+  {
+    question: "Como funciona a implementação?",
+    answer:
+      "A implementação envolve pesquisa, entrevistas, análise técnica, relatório, plano de ação e reunião de devolutiva com o RH e a direção.",
+  },
+  {
+    question: "Os atendimentos são sigilosos?",
+    answer:
+      "Sim. A empresa recebe apenas indicadores coletivos e recomendações institucionais, preservando o sigilo das informações individuais.",
+  },
+  {
+    question: "O programa é personalizado?",
+    answer:
+      "Sim. A estrutura é adaptada ao porte, à realidade e às necessidades específicas de cada empresa.",
+  },
+  {
+    question: "Os treinamentos podem ser presenciais?",
+    answer:
+      "Sim. Os treinamentos podem ser realizados de forma presencial ou online, conforme a necessidade da organização.",
+  },
+];
+---
+
+<section
+  id="faq"
+  class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-56 -top-72 hidden size-[560px] rotate-[18deg] rounded-[46%] border border-brand-500/30 xl:block"
+  ></div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1000px)] sm:w-[min(calc(100%-48px),1000px)]"
+  >
+    <div class="mx-auto max-w-[800px] text-center">
+      <div
+        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 sm:text-[13px]"
+      >
+        <HelpCircle
+          size={23}
+          strokeWidth={2}
+          aria-hidden="true"
+        />
+
+        <span>Dúvidas frequentes</span>
+      </div>
+
+      <h2
+        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+      >
+        Perguntas
+        <span class="text-brand-600">frequentes</span>
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-[650px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
+      >
+        Confira as principais dúvidas sobre a gestão de riscos psicossociais e o apoio à NR-1.
+      </p>
+
+      <div class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"></div>
+    </div>
+
+    <div class="mt-10 space-y-3 lg:mt-12">
+      {
+        faqs.map((faq) => (
+          <details
+            class="group overflow-hidden rounded-[20px] border border-[#dbe6e4] bg-white shadow-[0_10px_30px_rgb(7_29_43_/_5%)]"
+          >
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between gap-5 px-5 py-5 text-left sm:px-6"
+            >
+              <span
+                class="text-[16px] font-extrabold leading-6 text-ink-950 sm:text-[18px]"
+              >
+                {faq.question}
+              </span>
+
+              <span
+                class="flex size-10 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-700 transition-transform duration-300 group-open:rotate-180"
+              >
+                <ChevronDown
+                  size={21}
+                  strokeWidth={2}
+                  aria-hidden="true"
+                />
+              </span>
+            </summary>
+
+            <div class="border-t border-[#e4edeb] px-5 py-5 sm:px-6">
+              <p class="max-w-[820px] text-[14px] leading-7 text-ink-700 sm:text-[16px]">
+                {faq.answer}
+              </p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <div
+      class="mx-auto mt-8 flex max-w-[700px] items-center gap-4 rounded-[20px] bg-[#edf5f4] px-5 py-4 sm:px-6"
+    >
+      <ShieldCheck
+        size={27}
+        strokeWidth={1.8}
+        aria-hidden="true"
+        class="shrink-0 text-brand-700"
+      />
+
+      <p class="text-sm leading-6 text-ink-700 sm:text-[15px]">
+        Todas as etapas são conduzidas com ética, sigilo e cuidado com as informações coletadas.
+      </p>
+    </div>
+  </div>
+</section>

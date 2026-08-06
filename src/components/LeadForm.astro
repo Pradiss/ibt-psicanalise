@@ -1,0 +1,318 @@
+---
+import {
+  ArrowRight,
+  Building2,
+  CheckCircle2,
+  Mail,
+  MessageCircle,
+  ShieldCheck,
+  UserRound,
+} from "@lucide/astro";
+
+const whatsappNumber = "5511999999999";
+
+const whatsappMessage = encodeURIComponent(
+  "Olá! Gostaria de solicitar um diagnóstico sobre gestão de riscos psicossociais e NR-1.",
+);
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+---
+
+<section
+  id="contato"
+  class="relative overflow-hidden bg-[#073638] py-16 text-white sm:py-20 lg:py-24"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-60 -top-72 size-[560px] rounded-full border border-white/10"
+  ></div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-72 -left-60 size-[560px] rounded-full bg-white/5"
+  ></div>
+
+  <div
+    class="relative mx-auto grid w-[min(calc(100%-32px),1250px)] gap-10 sm:w-[min(calc(100%-48px),1250px)] lg:grid-cols-[0.9fr_1.1fr] lg:items-center lg:gap-14 xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div>
+      <div
+        class="inline-flex items-center gap-3 rounded-full bg-white/10 px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-[#99e0db] sm:text-[13px]"
+      >
+        <ShieldCheck
+          size={23}
+          strokeWidth={2}
+          aria-hidden="true"
+        />
+
+        <span>Atendimento especializado</span>
+      </div>
+
+      <h2
+        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-white lg:text-[44px]"
+      >
+        Estruture a gestão dos
+        <span class="text-[#71d5cf]">riscos psicossociais</span>
+        da sua empresa
+      </h2>
+
+      <p class="mt-5 max-w-[560px] text-[15px] leading-7 text-white/75 sm:text-[17px]">
+        Converse com um especialista e conheça a solução mais adequada para sua organização.
+      </p>
+
+      <ul class="mt-7 space-y-4">
+        <li class="flex items-center gap-3">
+          <CheckCircle2
+            size={22}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="shrink-0 text-[#71d5cf]"
+          />
+
+          <span class="text-sm text-white/85 sm:text-[15px]">
+            Atendimento ético e personalizado
+          </span>
+        </li>
+
+        <li class="flex items-center gap-3">
+          <CheckCircle2
+            size={22}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="shrink-0 text-[#71d5cf]"
+          />
+
+          <span class="text-sm text-white/85 sm:text-[15px]">
+            Avaliação adaptada à realidade da empresa
+          </span>
+        </li>
+
+        <li class="flex items-center gap-3">
+          <CheckCircle2
+            size={22}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="shrink-0 text-[#71d5cf]"
+          />
+
+          <span class="text-sm text-white/85 sm:text-[15px]">
+            Diagnóstico, plano de ação e acompanhamento
+          </span>
+        </li>
+      </ul>
+
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group mt-8 inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_0_0_/_20%)] transition duration-200 hover:-translate-y-0.5 sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+      >
+        <MessageCircle
+          size={25}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span>Solicitar diagnóstico</span>
+
+        <ArrowRight
+          size={27}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="ml-auto transition-transform group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+
+    <div
+      class="rounded-[28px] border border-white/15 bg-white p-6 text-ink-950 shadow-[0_30px_80px_rgb(0_0_0_/_20%)] sm:p-8"
+    >
+      <div class="mb-7">
+        <h3 class="text-[24px] font-extrabold text-ink-950">
+          Fale com um especialista
+        </h3>
+
+        <p class="mt-2 text-sm leading-6 text-ink-700 sm:text-[15px]">
+          Preencha seus dados para receber um contato da equipe.
+        </p>
+      </div>
+
+      <form action="#" method="POST" class="grid gap-4 sm:grid-cols-2">
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            Nome
+          </span>
+
+          <div class="relative">
+            <UserRound
+              size={19}
+              strokeWidth={1.8}
+              aria-hidden="true"
+              class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-600"
+            />
+
+            <input
+              type="text"
+              name="name"
+              autocomplete="name"
+              required
+              placeholder="Seu nome"
+              class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] pl-12 pr-4 text-sm outline-none transition placeholder:text-[#899591] focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+            />
+          </div>
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            Empresa
+          </span>
+
+          <div class="relative">
+            <Building2
+              size={19}
+              strokeWidth={1.8}
+              aria-hidden="true"
+              class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-600"
+            />
+
+            <input
+              type="text"
+              name="company"
+              autocomplete="organization"
+              required
+              placeholder="Nome da empresa"
+              class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] pl-12 pr-4 text-sm outline-none transition placeholder:text-[#899591] focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+            />
+          </div>
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            Cargo
+          </span>
+
+          <input
+            type="text"
+            name="position"
+            autocomplete="organization-title"
+            placeholder="Seu cargo"
+            class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] px-4 text-sm outline-none transition placeholder:text-[#899591] focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+          />
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            Número de colaboradores
+          </span>
+
+          <select
+            name="employees"
+            required
+            class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] px-4 text-sm outline-none transition focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+          >
+            <option value="">Selecione</option>
+            <option value="1-20">1 a 20</option>
+            <option value="21-50">21 a 50</option>
+            <option value="51-100">51 a 100</option>
+            <option value="101-300">101 a 300</option>
+            <option value="301+">Mais de 300</option>
+          </select>
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            Cidade
+          </span>
+
+          <input
+            type="text"
+            name="city"
+            autocomplete="address-level2"
+            required
+            placeholder="Sua cidade"
+            class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] px-4 text-sm outline-none transition placeholder:text-[#899591] focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+          />
+        </label>
+
+        <label class="block">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            WhatsApp
+          </span>
+
+          <div class="relative">
+            <MessageCircle
+              size={19}
+              strokeWidth={1.8}
+              aria-hidden="true"
+              class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-600"
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              autocomplete="tel"
+              required
+              placeholder="(00) 00000-0000"
+              class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] pl-12 pr-4 text-sm outline-none transition placeholder:text-[#899591] focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+            />
+          </div>
+        </label>
+
+        <label class="block sm:col-span-2">
+          <span class="mb-2 block text-sm font-bold text-ink-950">
+            E-mail
+          </span>
+
+          <div class="relative">
+            <Mail
+              size={19}
+              strokeWidth={1.8}
+              aria-hidden="true"
+              class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-brand-600"
+            />
+
+            <input
+              type="email"
+              name="email"
+              autocomplete="email"
+              required
+              placeholder="seuemail@empresa.com.br"
+              class="min-h-14 w-full rounded-[14px] border border-[#d6e2df] bg-[#fbfdfc] pl-12 pr-4 text-sm outline-none transition placeholder:text-[#899591] focus:border-brand-500 focus:ring-4 focus:ring-brand-100"
+            />
+          </div>
+        </label>
+
+        <label class="flex items-start gap-3 sm:col-span-2">
+          <input
+            type="checkbox"
+            name="privacy"
+            required
+            class="mt-1 size-4 rounded border-[#b9cac6] text-brand-600 focus:ring-brand-500"
+          />
+
+          <span class="text-xs leading-5 text-ink-700">
+            Concordo com o tratamento dos meus dados conforme a
+            <a href="/politica-de-privacidade" class="font-bold text-brand-700 underline">
+              Política de Privacidade
+            </a>.
+          </span>
+        </label>
+
+        <button
+          type="submit"
+          class="group inline-flex min-h-16 w-full items-center justify-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_95_92_/_22%)] transition hover:-translate-y-0.5 sm:col-span-2 sm:text-[14px]"
+        >
+          <span>Solicitar diagnóstico</span>
+
+          <ArrowRight
+            size={24}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="transition-transform group-hover:translate-x-1"
+          />
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,210 @@
+---
+import {
+  ArrowRight,
+  CalendarCheck,
+  ClipboardList,
+  MessageCircle,
+  ShieldCheck,
+} from "@lucide/astro";
+
+const whatsappNumber = "5511999999999";
+
+const whatsappMessage = encodeURIComponent(
+  "Olá! Gostaria de solicitar uma proposta comercial para o Programa de Gestão de Riscos Psicossociais.",
+);
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+const plans = [
+  {
+    title: "Implementação Inicial",
+    description:
+      "Pesquisa, diagnóstico, relatório, plano de ação e reunião de devolutiva.",
+    icon: ClipboardList,
+    items: [
+      "Pesquisa e entrevistas",
+      "Diagnóstico dos riscos",
+      "Relatório técnico",
+      "Plano de ação",
+      "Devolutiva com RH e direção",
+    ],
+  },
+  {
+    title: "Acompanhamento Mensal",
+    description:
+      "Suporte contínuo para acompanhar indicadores, lideranças e ações internas.",
+    icon: CalendarCheck,
+    items: [
+      "Plantão de orientação",
+      "Reuniões de acompanhamento",
+      "Análise de indicadores",
+      "Treinamentos",
+      "Suporte personalizado",
+    ],
+  },
+];
+---
+
+<section
+  id="contratacao"
+  class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-56 -top-72 hidden size-[560px] rotate-[18deg] rounded-[46%] border border-brand-500/30 xl:block"
+  ></div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute right-[12%] top-12 hidden grid-cols-3 gap-4 opacity-50 xl:grid"
+  >
+    {
+      Array.from({ length: 9 }).map(() => (
+        <span class="size-[8px] rounded-full bg-[#c8e2df]"></span>
+      ))
+    }
+  </div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div class="mx-auto max-w-[850px] text-center">
+      <div
+        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 sm:text-[13px]"
+      >
+        <ShieldCheck
+          size={24}
+          strokeWidth={2}
+          aria-hidden="true"
+        />
+
+        <span>Soluções adaptadas à empresa</span>
+      </div>
+
+      <h2
+        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+      >
+        Formas de
+        <span class="text-brand-600">contratação</span>
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-[720px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
+      >
+        Escolha uma implementação completa ou mantenha um acompanhamento
+        contínuo conforme as necessidades da organização.
+      </p>
+
+      <div class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"></div>
+    </div>
+
+    <div class="mx-auto mt-10 grid max-w-[980px] gap-5 lg:mt-12 lg:grid-cols-2">
+      {
+        plans.map((plan, index) => {
+          const Icon = plan.icon;
+
+          return (
+            <article
+              class:list={[
+                "relative overflow-hidden rounded-[26px] border p-7 shadow-[0_16px_45px_rgb(7_29_43_/_7%)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_24px_60px_rgb(7_29_43_/_12%)] sm:p-8",
+                index === 0
+                  ? "border-[#dbe6e4] bg-white"
+                  : "border-brand-600 bg-[#073b3b] text-white",
+              ]}
+            >
+              <div
+                class:list={[
+                  "inline-flex size-16 items-center justify-center rounded-[18px]",
+                  index === 0
+                    ? "bg-gradient-to-br from-[#eef7f5] to-[#e0efed] text-brand-700"
+                    : "bg-white/10 text-[#8ee2dc]",
+                ]}
+              >
+                <Icon
+                  size={31}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+              </div>
+
+              <h3
+                class:list={[
+                  "mt-6 text-[24px] font-extrabold leading-[1.25]",
+                  index === 0 ? "text-ink-950" : "text-white",
+                ]}
+              >
+                {plan.title}
+              </h3>
+
+              <p
+                class:list={[
+                  "mt-3 text-[15px] leading-7",
+                  index === 0 ? "text-ink-700" : "text-white/75",
+                ]}
+              >
+                {plan.description}
+              </p>
+
+              <ul class="mt-6 space-y-3">
+                {
+                  plan.items.map((item) => (
+                    <li class="flex items-center gap-3">
+                      <span
+                        class:list={[
+                          "flex size-6 shrink-0 items-center justify-center rounded-full",
+                          index === 0
+                            ? "bg-brand-100 text-brand-700"
+                            : "bg-white/10 text-[#8ee2dc]",
+                        ]}
+                      >
+                        <ShieldCheck
+                          size={15}
+                          strokeWidth={2.2}
+                          aria-hidden="true"
+                        />
+                      </span>
+
+                      <span
+                        class:list={[
+                          "text-sm leading-6 sm:text-[15px]",
+                          index === 0 ? "text-ink-700" : "text-white/85",
+                        ]}
+                      >
+                        {item}
+                      </span>
+                    </li>
+                  ))
+                }
+              </ul>
+            </article>
+          );
+        })
+      }
+    </div>
+
+    <div class="mt-8 flex justify-center">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_95_92_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_95_92_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+      >
+        <MessageCircle
+          size={25}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span>Solicitar proposta comercial</span>
+
+        <ArrowRight
+          size={27}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="ml-auto shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+  </div>
+</section>
