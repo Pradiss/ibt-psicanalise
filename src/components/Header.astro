@@ -1,0 +1,37 @@
+---
+import { Menu } from "@lucide/astro";
+import logoImage from "../assets/images/logo-ibt.svg";
+---
+
+<header class="absolute inset-x-0 top-0 z-50">
+  <div
+    class="mx-auto flex h-24 w-[min(calc(100%-32px),1250px)] items-center justify-between sm:h-28 sm:w-[min(calc(100%-48px),1250px)] lg:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <a
+      href="/"
+      aria-label="IBT Psicanálise"
+      class="inline-flex shrink-0 items-center"
+    >
+      <img
+        src={logoImage.src}
+        width={logoImage.width}
+        height={logoImage.height}
+        alt="IBT Psicanálise"
+        class="h-auto w-32 sm:w-40 lg:w-44"
+      />
+    </a>
+
+    <button
+      type="button"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      class="inline-flex size-11 items-center justify-center bg-transparent text-brand-700 lg:hidden"
+    >
+      <Menu
+        size={34}
+        strokeWidth={2.2}
+        aria-hidden="true"
+      />
+    </button>
+  </div>
+</header>

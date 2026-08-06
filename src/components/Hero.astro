@@ -1,0 +1,207 @@
+---
+import {
+  ArrowRight,
+  ClipboardCheck,
+  MessageCircle,
+  Presentation,
+  ShieldCheck,
+  Target,
+} from "@lucide/astro";
+
+import heroImage from "../assets/images/hero-reuniao.webp";
+
+const whatsappNumber = "5511999999999";
+
+const whatsappMessage = encodeURIComponent(
+  "Olá! Gostaria de falar com um especialista sobre Gestão de Riscos Psicossociais e apoio à NR-1.",
+);
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+const benefits = [
+  {
+    title: "Diagnóstico e relatório técnico",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Plano de ação personalizado",
+    icon: Target,
+  },
+  {
+    title: "Treinamentos e acompanhamento",
+    icon: Presentation,
+  },
+];
+---
+
+<section
+  class="relative overflow-hidden bg-[#fdfdfb] pt-24 sm:pt-28 lg:flex lg:min-h-[min(900px,100svh)] lg:items-center lg:pt-24 xl:min-h-[900px]"
+>
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute left-[52%] top-12 hidden grid-cols-4 gap-3 opacity-50 xl:grid"
+  >
+    {
+      Array.from({ length: 12 }).map(() => (
+        <span class="size-[7px] rounded-full bg-[#c8e2df]" />
+      ))
+    }
+  </div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-52 -top-60 hidden size-[520px] rotate-[22deg] rounded-[46%] border border-brand-500/30 xl:block"
+  >
+  </div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-72 -left-52 hidden size-[590px] rounded-full border border-brand-500/20 xl:block"
+  >
+  </div>
+
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-[300px] -left-44 hidden size-[590px] rounded-full border border-brand-500/15 xl:block"
+  >
+  </div>
+
+  <div
+    class="relative mx-auto grid w-full lg:w-[min(calc(100%-48px),1250px)] lg:grid-cols-[53%_47%] lg:items-center xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div
+      class="relative z-10 mx-auto flex w-[min(calc(100%-32px),680px)] flex-col justify-center pb-12 pt-5 sm:w-[min(calc(100%-48px),680px)] sm:pb-16 lg:mx-0 lg:w-auto lg:max-w-[610px] lg:py-12 xl:max-w-[625px]"
+    >
+      <div
+        class="inline-flex w-fit max-w-full items-center gap-2.5 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-4 py-2.5 text-[10px] font-extrabold uppercase tracking-[0.035em] text-brand-800 min-[390px]:text-[11px] sm:gap-3 sm:px-5 sm:py-3 sm:text-[13px]"
+      >
+        <ShieldCheck
+          size={22}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span>Programa Corporativo | Apoio à NR-1</span>
+      </div>
+
+      <h1
+        class="mt-6 max-w-[590px] text-[clamp(2rem,8vw,2.9rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-ink-950 sm:mt-7 sm:text-[clamp(2.4rem,5.8vw,3.2rem)] md:max-w-[620px] lg:mt-7 lg:text-[clamp(2.45rem,3.4vw,2.9rem)] lg:leading-[1.12] xl:text-[46px]"
+      >
+        Adeque sua empresa à NR-1 com um Programa Completo de Gestão de
+
+        <span class="text-brand-600 sm:block"> Riscos Psicossociais </span>
+      </h1>
+
+      <div class="mt-5 hidden h-[3px] w-14 rounded-full bg-brand-600 lg:block">
+      </div>
+
+      <p
+        class="mt-5 max-w-[580px] text-[15px] leading-[1.65] text-ink-700 min-[390px]:text-base sm:text-[17px] lg:text-[17px] xl:text-lg"
+      >
+        Diagnóstico, plano de ação e acompanhamento para identificar riscos
+        psicossociais e fortalecer a
+
+        <strong class="font-extrabold text-brand-700"> saúde emocional </strong>
+
+        no trabalho.
+      </p>
+
+      <ul
+        class="mt-5 grid grid-cols-1 divide-y divide-[#d6e4e1] sm:mt-7 md:grid-cols-3 md:divide-x md:divide-y-0"
+        aria-label="Benefícios do programa"
+      >
+        {
+          benefits.map((benefit, index) => {
+            const Icon = benefit.icon;
+
+            return (
+              <li
+                class:list={[
+                  "flex items-center gap-4 py-3.5 md:flex-col md:items-start md:px-4 md:py-0 lg:px-4 xl:px-5",
+                  index === 0 && "md:pl-0",
+                ]}
+              >
+                <div class="inline-flex size-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#eef8f7] to-[#dcefeb] text-brand-700 sm:size-16">
+                  <Icon size={30} strokeWidth={1.8} aria-hidden="true" />
+                </div>
+
+                <p class="max-w-[210px] text-sm font-bold leading-[1.45] text-ink-950 sm:text-[15px] md:max-w-[145px] md:text-[13px] xl:text-sm">
+                  {benefit.title}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+
+      <div class="mt-6 sm:mt-7">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] !text-white shadow-[0_16px_34px_rgb(0_95_92_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_95_92_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+        >
+          <MessageCircle
+            size={25}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="shrink-0"
+          />
+
+          <span class="text-left"> Falar com um especialista </span>
+
+          <ArrowRight
+            size={27}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="ml-auto shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+          />
+        </a>
+
+        <p
+          class="mt-3 flex items-center gap-2 px-1 text-[11px] leading-5 text-[#7d8986] sm:mt-4 sm:pl-3 sm:text-[13px]"
+        >
+          <ShieldCheck
+            size={18}
+            strokeWidth={2}
+            aria-hidden="true"
+            class="shrink-0"
+          />
+
+          Atendimento ético, sigiloso e personalizado.
+        </p>
+      </div>
+    </div>
+
+    <div class="relative hidden h-[clamp(560px,70vh,700px)] min-h-0 lg:block">
+      <div
+        class="absolute inset-y-4 left-0 right-[-24px] overflow-hidden rounded-[90px_0_90px_90px] xl:right-[-32px] xl:rounded-[115px_0_115px_115px]"
+      >
+        <img
+          src={heroImage.src}
+          width={heroImage.width}
+          height={heroImage.height}
+          alt="Profissionais reunidos para discutir gestão de pessoas e riscos psicossociais"
+          loading="eager"
+          fetchpriority="high"
+          class="h-full w-full object-cover object-center"
+        />
+      </div>
+    </div>
+
+    <div
+      class="relative h-[clamp(320px,105vw,580px)] overflow-hidden rounded-t-[56px] sm:rounded-t-[80px] lg:hidden"
+    >
+      <img
+        src={heroImage.src}
+        width={heroImage.width}
+        height={heroImage.height}
+        alt="Profissionais reunidos para discutir gestão de pessoas e riscos psicossociais"
+        loading="eager"
+        fetchpriority="high"
+        class="h-full w-full object-cover object-center"
+      />
+    </div>
+  </div>
+</section>

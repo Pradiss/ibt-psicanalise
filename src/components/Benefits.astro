@@ -1,0 +1,107 @@
+---
+import {
+  BarChart3,
+  HeartHandshake,
+  MessageSquareMore,
+  ShieldCheck,
+  Sparkles,
+  UsersRound,
+} from "@lucide/astro";
+
+const benefits = [
+  {
+    title: "Mais prevenção",
+    description: "Identificação antecipada de riscos.",
+    icon: ShieldCheck,
+  },
+  {
+    title: "Lideranças preparadas",
+    description: "Mais clareza para conduzir equipes.",
+    icon: UsersRound,
+  },
+  {
+    title: "Menos conflitos",
+    description: "Melhoria da comunicação interna.",
+    icon: MessageSquareMore,
+  },
+  {
+    title: "Apoio à NR-1",
+    description: "Estrutura para gestão dos riscos psicossociais.",
+    icon: HeartHandshake,
+  },
+  {
+    title: "Mais engajamento",
+    description: "Equipes mais saudáveis e produtivas.",
+    icon: Sparkles,
+  },
+  {
+    title: "Decisões com dados",
+    description: "Indicadores coletivos para o RH.",
+    icon: BarChart3,
+  },
+];
+---
+
+<section
+  id="beneficios"
+  class="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+>
+  <div
+    class="mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div class="mx-auto max-w-[780px] text-center">
+      <span
+        class="text-[11px] font-extrabold uppercase tracking-[0.1em] text-brand-700 sm:text-xs"
+      >
+        Resultados para a empresa
+      </span>
+
+      <h2
+  class="mt-5 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-ink-950 lg:text-[44px]"
+>
+  Benefícios da gestão de
+  <span class="text-brand-600"> riscos psicossociais</span>
+</h2>
+
+      <p
+        class="mx-auto mt-5 max-w-[650px] text-[15px] leading-7 text-ink-700 sm:text-[17px]"
+      >
+        Mais segurança para o RH, mais preparo para as lideranças e melhores condições para as equipes.
+      </p>
+    </div>
+
+    <div
+      class="mt-10 grid gap-4 sm:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-5"
+    >
+      {
+        benefits.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <article
+              class="rounded-[24px] border border-[#dce8e5] bg-[#fbfdfc] p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-[0_20px_55px_rgb(7_29_43_/_8%)]"
+            >
+              <div
+                class="inline-flex size-14 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_12px_26px_rgb(0_104_100_/_18%)]"
+              >
+                <Icon
+                  size={27}
+                  strokeWidth={1.8}
+                  aria-hidden="true"
+                />
+              </div>
+
+              <h3 class="mt-5 text-[18px] font-extrabold text-ink-950">
+                {item.title}
+              </h3>
+
+              <p class="mt-2 text-sm leading-6 text-ink-700 sm:text-[15px]">
+                {item.description}
+              </p>
+            </article>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

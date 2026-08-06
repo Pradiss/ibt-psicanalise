@@ -1,0 +1,186 @@
+---
+import {
+  ClipboardCheck,
+  HeartPulse,
+  MessagesSquare,
+  ShieldAlert,
+  ShieldCheck,
+  Star,
+  UserRoundCog,
+  UsersRound,
+} from "@lucide/astro";
+
+const areas = [
+  {
+    title: "Liderança",
+    description: "Respeito, clareza e gestão de conflitos.",
+    icon: UserRoundCog,
+  },
+  {
+    title: "Clima e comunicação",
+    description: "Relacionamento, confiança e fluxo de informações.",
+    icon: MessagesSquare,
+  },
+  {
+    title: "Saúde emocional",
+    description: "Estresse, ansiedade e sobrecarga.",
+    icon: HeartPulse,
+  },
+  {
+    title: "Organização do trabalho",
+    description: "Metas, demandas e distribuição das atividades.",
+    icon: ClipboardCheck,
+  },
+  {
+    title: "Assédio e constrangimento",
+    description: "Humilhações, ameaças e segurança para relatar problemas.",
+    icon: ShieldAlert,
+  },
+  {
+    title: "Integração entre equipes",
+    description: "Cooperação e relacionamento entre setores.",
+    icon: UsersRound,
+  },
+];
+---
+
+<section
+  id="o-que-avaliamos"
+  class="relative overflow-hidden bg-[#fdfdfb] py-16 sm:py-20 lg:py-24"
+>
+  <!-- Curva superior direita -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -right-56 -top-72 hidden size-[560px] rotate-[18deg] rounded-[46%] border border-brand-500/30 xl:block"
+  ></div>
+
+  <!-- Pontos -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute right-[10%] top-14 hidden grid-cols-3 gap-4 opacity-50 xl:grid"
+  >
+    {
+      Array.from({ length: 9 }).map(() => (
+        <span class="size-[8px] rounded-full bg-[#c8e2df]"></span>
+      ))
+    }
+  </div>
+
+  <!-- Forma inferior esquerda -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute -bottom-72 -left-60 hidden size-[560px] rounded-full bg-[#e8f3f1] xl:block"
+  ></div>
+
+  <div
+    class="relative mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <!-- Cabeçalho -->
+    <div class="mx-auto max-w-[850px] text-center">
+      <div
+        class="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-[#edf7f6] to-[#deefed] px-5 py-3 text-[11px] font-extrabold uppercase tracking-[0.045em] text-brand-800 sm:text-[13px]"
+      >
+        <ShieldCheck
+          size={24}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span>Avaliação completa e estratégica</span>
+      </div>
+
+      <h2
+        class="mt-6 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.1] tracking-[-0.045em] text-ink-950 lg:text-[44px]"
+      >
+        O que
+        <span class="text-brand-600">avaliamos</span>
+      </h2>
+
+      <p
+        class="mx-auto mt-5 max-w-[720px] text-[15px] leading-7 text-ink-700 sm:text-[17px] lg:text-[18px]"
+      >
+        Analisamos os principais fatores que impactam a saúde emocional e o
+        desempenho das equipes.
+      </p>
+
+      <div
+        class="mx-auto mt-5 h-[3px] w-16 rounded-full bg-brand-600"
+      ></div>
+    </div>
+
+    <!-- Cards -->
+    <div
+      class="mt-10 grid gap-4 md:grid-cols-2 lg:mt-12 lg:grid-cols-3 lg:gap-4 xl:gap-5"
+    >
+      {
+        areas.map((area) => {
+          const Icon = area.icon;
+
+          return (
+            <article
+              class="flex min-h-[210px] items-center gap-5 rounded-[22px] border border-[#dbe6e4] bg-white p-5 shadow-[0_12px_35px_rgb(7_29_43_/_6%)] transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:shadow-[0_20px_50px_rgb(7_29_43_/_10%)] sm:p-6"
+            >
+              <div
+                class="flex size-[96px] shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#eef7f5] to-[#e0efed] text-brand-700 sm:size-[105px]"
+              >
+                <Icon
+                  size={48}
+                  strokeWidth={1.65}
+                  aria-hidden="true"
+                />
+              </div>
+
+              <div
+                class="hidden h-[118px] w-px shrink-0 bg-[#d8e4e2] sm:block"
+              ></div>
+
+              <div>
+                <h3
+                  class="text-[18px] font-extrabold leading-[1.3] text-brand-800 sm:text-[20px]"
+                >
+                  {area.title}
+                </h3>
+
+                <p
+                  class="mt-3 text-[14px] leading-6 text-ink-700 sm:text-[15px]"
+                >
+                  {area.description}
+                </p>
+              </div>
+            </article>
+          );
+        })
+      }
+    </div>
+
+    <!-- Destaque final -->
+    <div
+      class="mx-auto mt-8 flex max-w-[820px] flex-col items-center gap-5 rounded-[22px] bg-gradient-to-r from-[#edf5f4] to-[#e8f1ef] px-6 py-5 sm:flex-row sm:px-8"
+    >
+      <div
+        class="flex size-14 shrink-0 items-center justify-center rounded-full border-2 border-brand-600 text-brand-700"
+      >
+        <Star
+          size={28}
+          strokeWidth={1.8}
+          aria-hidden="true"
+        />
+      </div>
+
+      <div
+        class="hidden h-14 w-px shrink-0 bg-brand-500/45 sm:block"
+      ></div>
+
+      <p
+        class="text-center text-[15px] leading-7 text-ink-950 sm:text-left sm:text-[17px] lg:text-[18px]"
+      >
+        Uma visão completa para decisões mais assertivas e um ambiente de
+        trabalho
+        <strong class="font-extrabold text-brand-700">
+          mais saudável e produtivo.
+        </strong>
+      </p>
+    </div>
+  </div>
+</section>

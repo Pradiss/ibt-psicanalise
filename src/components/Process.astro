@@ -1,0 +1,147 @@
+---
+import {
+  ArrowRight,
+  BarChart3,
+  ClipboardList,
+  FileSearch,
+  MessageCircle,
+  Settings2,
+} from "@lucide/astro";
+import { MessageCircleMore } from "@lucide/astro";
+
+const whatsappNumber = "5511999999999";
+
+const whatsappMessage = encodeURIComponent(
+  "Olá! Gostaria de entender como funciona o Programa de Gestão de Riscos Psicossociais.",
+);
+
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+const steps = [
+  {
+    number: "01",
+    title: "Diagnóstico",
+    description:
+      "Pesquisa e entrevistas para compreender a realidade da empresa.",
+    icon: FileSearch,
+  },
+  {
+    number: "02",
+    title: "Relatório",
+    description: "Identificação dos riscos, prioridades e pontos de atenção.",
+    icon: ClipboardList,
+  },
+  {
+    number: "03",
+    title: "Implementação",
+    description: "Plano de ação, orientações e treinamentos personalizados.",
+    icon: Settings2,
+  },
+  {
+    number: "04",
+    title: "Acompanhamento",
+    description: "Indicadores coletivos, suporte e orientação contínua.",
+    icon: BarChart3,
+  },
+];
+---
+
+<section
+  id="como-funciona"
+  class="relative overflow-hidden bg-white py-16 sm:py-20 lg:py-24"
+>
+  <div
+    class="mx-auto w-[min(calc(100%-32px),1250px)] sm:w-[min(calc(100%-48px),1250px)] xl:w-[min(calc(100%-64px),1250px)]"
+  >
+    <div
+      class="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between"
+    >
+      <div class="max-w-[680px]">
+        <span
+          class="text-[11px] font-extrabold uppercase tracking-[0.1em] text-brand-700 sm:text-xs"
+        >
+          Etapas do programa
+        </span>
+
+        <h2
+          class="mt-4 text-[clamp(2rem,7vw,3rem)] font-extrabold leading-[1.12] tracking-[-0.04em] text-ink-950 lg:text-[44px]"
+        >
+          Como funciona a gestão de
+          <span class="text-brand-600">riscos psicossociais</span>
+        </h2>
+      </div>
+
+      <p
+        class="max-w-[470px] text-[15px] leading-7 text-ink-700 sm:text-[17px]"
+      >
+        Uma jornada estruturada para transformar informações em decisões e ações
+        aplicáveis à realidade da empresa.
+      </p>
+    </div>
+
+    <div class="relative mt-12 lg:mt-14">
+      <div
+        aria-hidden="true"
+        class="absolute left-[12.5%] right-[12.5%] top-10 hidden h-px bg-[#cfe2df] lg:block"
+      >
+      </div>
+
+      <ol class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {
+          steps.map((step) => {
+            const Icon = step.icon;
+
+            return (
+              <li class="relative">
+                <article class="h-full rounded-[26px] border border-[#dce9e6] bg-[#fbfdfc] p-6 transition duration-300 hover:-translate-y-1 hover:border-brand-300 hover:bg-white hover:shadow-[0_20px_55px_rgb(7_29_43_/_8%)]">
+                  <div class="flex items-center justify-between gap-4">
+                    <div class="relative z-10 inline-flex size-20 items-center justify-center rounded-[22px] bg-gradient-to-br from-brand-700 to-brand-500 text-white shadow-[0_14px_30px_rgb(0_104_100_/_18%)]">
+                      <Icon size={31} strokeWidth={1.8} aria-hidden="true" />
+                    </div>
+
+                    <span class="text-[34px] font-extrabold tracking-[-0.06em] text-brand-100">
+                      {step.number}
+                    </span>
+                  </div>
+
+                  <h3 class="mt-6 text-xl font-extrabold text-ink-950">
+                    {step.title}
+                  </h3>
+
+                  <p class="mt-3 text-sm leading-6 text-ink-700 sm:text-[15px]">
+                    {step.description}
+                  </p>
+                </article>
+              </li>
+            );
+          })
+        }
+      </ol>
+    </div>
+
+    <div class="mt-10 flex justify-center lg:mt-12">
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group inline-flex min-h-16 w-full max-w-[500px] items-center gap-3 rounded-[18px] bg-gradient-to-r from-[#006b67] to-[#078b86] px-5 py-3.5 text-[12px] font-extrabold uppercase tracking-[0.015em] text-white shadow-[0_16px_34px_rgb(0_95_92_/_22%)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_20px_44px_rgb(0_95_92_/_28%)] sm:min-h-[68px] sm:gap-4 sm:rounded-[20px] sm:px-6 sm:text-[14px] xl:text-[15px]"
+      >
+        <MessageCircleMore
+          size={25}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="shrink-0"
+        />
+
+        <span class="text-left"> Solicitar uma avaliação </span>
+
+        <ArrowRight
+          size={27}
+          strokeWidth={2}
+          aria-hidden="true"
+          class="ml-auto shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+        />
+      </a>
+    </div>
+  </div>
+</section>
